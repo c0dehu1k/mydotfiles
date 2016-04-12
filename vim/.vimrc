@@ -1,5 +1,6 @@
 set ic
 set nu
+set relativenumber
 set autoindent
 set cindent
 set incsearch
@@ -12,27 +13,33 @@ set softtabstop=4
 set expandtab
 set autochdir
 set ignorecase
-set nobackup       
-set nowritebackup  
-set noswapfile     
+set nobackup
+set nowritebackup
+set noswapfile
 set laststatus=2
 set encoding=utf-8
-set history=700    
-set undolevels=700 
+set history=700
+set undolevels=700
 set nofoldenable
 set clipboard=unnamed
+
+let mapleader = ","
+
+"For Display of Hidden Characters
+set listchars=tab:▸\ ,eol:¬
 
 syntax on
 filetype plugin on
 colorscheme jellybeans
-let mapleader = ","
 
 "Default Key Mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>l :set list!<CR>
 
+"Plugin Manager Vim
 execute pathogen#infect()
 
 "YouCompleteMe Related Configurations
@@ -49,7 +56,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 "GVim Related Configurations
 set switchbuf=useopen,usetab
-set guifont=Source\ Code\ Pro\ for\ Powerline
+set guifont=Monaco\ 11
 set go-=m
 set go-=T
 set go-=r  "remove right-hand scroll bar
