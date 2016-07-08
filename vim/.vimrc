@@ -23,6 +23,9 @@ set undolevels=700
 set nofoldenable
 set clipboard=unnamed
 
+"Setting the tag folder for vim i.e. ctags
+set tags=./tags
+
 let mapleader = ","
 
 "For Display of Hidden Characters
@@ -30,7 +33,7 @@ set listchars=tab:▸\ ,eol:¬
 
 syntax on
 filetype plugin on
-colorscheme jellybeans
+"colorscheme jellybeans
 
 "Default Key Mappings
 nnoremap <C-J> <C-W><C-J>
@@ -51,12 +54,23 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 "NerdTree Related Configurations
 let g:nerdtree_tabs_open_on_console_startup=0
 map <C-n> :NERDTreeToggle<CR>
+
+"Below list has used to ignore the type of file we want NerdTress to display
+let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$']
+
 "autocmd vimenter * NERDTree
 "autocmd VimEnter * wincmd p
 
 "GVim Related Configurations
 set switchbuf=useopen,usetab
-set guifont=Monaco\ 11
+if has('win32')
+    set guifont=Consolas:h12   " Win32.
+elseif has('gui_macvim')
+    set guifont=Monaco:h12     " OSX.
+else
+    set guifont=Monospace\ 12  " Linux.
+endif
+
 set go-=m
 set go-=T
 set go-=r  "remove right-hand scroll bar
@@ -81,3 +95,4 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
+
