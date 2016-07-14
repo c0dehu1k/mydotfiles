@@ -10,7 +10,6 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
 set autochdir
 set ignorecase
 set nobackup
@@ -22,6 +21,7 @@ set history=700
 set undolevels=700
 set nofoldenable
 set clipboard=unnamed
+set expandtab
 
 "Setting the tag folder for vim i.e. ctags
 set tags=./tags
@@ -41,6 +41,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>l :set list!<CR>
+" Turn off highlighting after a search
+nnoremap <leader>h :noh<CR>
 
 "Plugin Manager Vim
 execute pathogen#infect()
@@ -96,3 +98,10 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" NerdCommenter Related Configurations
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Allow commenting and inverting empty lines (useful when commenting aregion)
+let g:NERDCommentEmptyLines = 1

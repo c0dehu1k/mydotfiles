@@ -1,0 +1,13 @@
+alias t=task
+alias ts="task sync"
+alias ta="task add"
+alias tl="task list"
+alias tm="task minimal"
+alias tn="task next"
+alias tst="task stat"
+alias tsum="task summary"
+alias to="task overdue"
+alias tc="task completed"
+alias tu="task undo"
+alias tp="task pending"
+alias tact="task active"
