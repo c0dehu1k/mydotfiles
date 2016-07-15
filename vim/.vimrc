@@ -5,7 +5,6 @@ set autoindent
 set cindent
 set incsearch
 set hlsearch
-set laststatus=2
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -22,20 +21,23 @@ set undolevels=700
 set nofoldenable
 set clipboard=unnamed
 set expandtab
+set colorcolumn=120
 
-"Setting the tag folder for vim i.e. ctags
-set tags=./tags
+" Setting the tag folder for vim
+" Search for a tags file in the directory of the current file, then for a tags file
+" from the working directory upward to $HOME
+set tags=./tags;,tags;$HOME
 
 let mapleader = ","
 
-"For Display of Hidden Characters
+" For Display of Hidden Characters
 set listchars=tab:▸\ ,eol:¬
 
 syntax on
 filetype plugin on
-"colorscheme jellybeans
+colorscheme sandydune
 
-"Default Key Mappings
+" Default Key Mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -43,6 +45,13 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>l :set list!<CR>
 " Turn off highlighting after a search
 nnoremap <leader>h :noh<CR>
+
+" Copy absolute path  with filename
+nnoremap <leader>cp :let @+=expand("%:p")<CR>
+" Copy Only Filename (foo.txt)
+nnoremap <leader>cf :let @+=expand("%:t")<CR>
+" Copy only the directory of the file
+nnoremap <leader>cd :let @+=expand("%:p:h")<CR>
 
 "Plugin Manager Vim
 execute pathogen#infect()
@@ -58,7 +67,7 @@ let g:nerdtree_tabs_open_on_console_startup=0
 map <C-n> :NERDTreeToggle<CR>
 
 "Below list has used to ignore the type of file we want NerdTress to display
-let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$']
+let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$','__pycache__$']
 
 "autocmd vimenter * NERDTree
 "autocmd VimEnter * wincmd p
@@ -66,9 +75,9 @@ let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$']
 "GVim Related Configurations
 set switchbuf=useopen,usetab
 if has('win32')
-    set guifont=Consolas:h12   " Win32.
+    set guifont=Consolas:h14   " Win32.
 elseif has('gui_macvim')
-    set guifont=Monaco:h12     " OSX.
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12 " Macvim
 else
     set guifont=Monospace\ 12  " Linux.
 endif
@@ -78,6 +87,9 @@ set go-=T
 set go-=r  "remove right-hand scroll bar
 set go-=L  "remove left-hand scroll bar
 let g:autopep8_max_line_length=120
+
+" Syntastic max line length to 120 characters
+let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
 "vim-airline Related Configurations
 if !exists('g:airline_symbols')
@@ -93,7 +105,7 @@ let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.paste = '∥'
+let g:airline_symbols.paste = '|'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
@@ -103,5 +115,5 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-" Allow commenting and inverting empty lines (useful when commenting aregion)
+" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
