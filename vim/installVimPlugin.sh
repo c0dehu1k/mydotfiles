@@ -13,3 +13,10 @@ git clone git@github.com:vim-airline/vim-airline.git
 git clone git@github.com:vim-airline/vim-airline-themes.git
 git clone git@github.com:scrooloose/syntastic.git
 git clone git@github.com:scrooloose/nerdtree.git
+
+# All Famous ColorSchemes for vim
+mkdir -p ~/.vim/colors
+cd ~/.vim/colors
+git clone git@github.com:flazz/vim-colorschemes.git
+cd ./vim-colorschemes/colors/
+mv *.vim ../../

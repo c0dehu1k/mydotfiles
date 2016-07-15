@@ -117,14 +117,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
+# Enable 256 colors in the terminal
 export TERM=xterm-256color
 
+# Taskwarrior Configuration
 source /usr/share/bash-completion/completions/task;
 complete -o nospace -F _task t
 complete -o nospace -F _task ta
 complete -o nospace -F _task tm
 
+# Powerline Configuration
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
         source /usr/share/powerline/bindings/bash/powerline.sh
 fi
