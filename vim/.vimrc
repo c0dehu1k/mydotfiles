@@ -79,7 +79,7 @@ if has('win32')
 elseif has('gui_macvim')
     set guifont=Source\ Code\ Pro\ for\ Powerline:h12 " Macvim
 else
-    set guifont=Monospace\ 12  " Linux.
+    set guifont=Monaco:h14
 endif
 
 set go-=m
@@ -91,6 +91,11 @@ let g:autopep8_max_line_length=120
 " Syntastic max line length to 120 characters
 let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
+" Pymode Confirguration Parameters
+let g:pymode_options_max_line_length = 120
+let g:pymode_options_colorcolumn = 1
+let g:pymode_virtualenv = 1
+
 "vim-airline Related Configurations
 if !exists('g:airline_symbols')
       let g:airline_symbols = {}
@@ -99,7 +104,7 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'powerlineish'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
