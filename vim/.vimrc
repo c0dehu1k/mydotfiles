@@ -23,6 +23,9 @@ set clipboard=unnamed
 set expandtab
 set colorcolumn=120
 
+" Key Mapping for Adding Python Debugger in the source code
+au FileType python map <silent> <leader>b oimport pudb; pudb.set_trace()<esc>
+
 " Setting the tag folder for vim
 " Search for a tags file in the directory of the current file, then for a tags file
 " from the working directory upward to $HOME
