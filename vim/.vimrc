@@ -102,7 +102,7 @@ let g:pymode_indent = 1
 let g:pymode_lint_unmodified = 1
 let g:pymode_lint_message = 1
 let g:pymode_lint_cwindow = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pep257']
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pylint']
 
 "vim-airline Related Configurations
 if !exists('g:airline_symbols')
