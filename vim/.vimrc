@@ -98,6 +98,11 @@ let g:syntastic_python_pylint_post_args="--max-line-length=120"
 let g:pymode_options_max_line_length = 120
 let g:pymode_options_colorcolumn = 1
 let g:pymode_virtualenv = 1
+let g:pymode_indent = 1
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_cwindow = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pep257']
 
 "vim-airline Related Configurations
 if !exists('g:airline_symbols')
