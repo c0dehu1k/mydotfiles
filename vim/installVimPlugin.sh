@@ -23,3 +23,5 @@ cd ~/.vim/colors
 git clone git@github.com:flazz/vim-colorschemes.git
 cd ./vim-colorschemes/colors/
 mv *.vim ../../
+cd ~/.vim/colors
+rm -rf vim-colorschemes/
