@@ -8,15 +8,15 @@ git clone git@github.com:tpope/vim-fugitive.git
 git clone git@github.com:tpope/vim-surround.git
 git clone git@github.com:klen/python-mode.git
 git clone git@github.com:scrooloose/nerdtree.git
-git clone git@github.com:Valloric/YouCompleteMe.git
-cd ~/.vim/bundle/YouCompleteMe
-git submodule update --init --recursive
-cd ..
 git clone git@github.com:scrooloose/nerdcommenter.git
 git clone git@github.com:vim-airline/vim-airline.git
 git clone git@github.com:vim-airline/vim-airline-themes.git
 git clone git@github.com:scrooloose/syntastic.git
-git clone git@github.com:scrooloose/nerdtree.git
+git clone git@github.com:Valloric/YouCompleteMe.git
+cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
+cd ..
+
 
 # All Famous ColorSchemes for vim
 mkdir -p ~/.vim/colors
