@@ -130,3 +130,12 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.pyc,*.pyc,*.pdf,*.doc,*.pptx,*.docx  " Don't need them to open in VIM atleast
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
