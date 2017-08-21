@@ -12,6 +12,7 @@ git clone git@github.com:scrooloose/nerdcommenter.git
 git clone git@github.com:vim-airline/vim-airline.git
 git clone git@github.com:vim-airline/vim-airline-themes.git
 git clone git@github.com:scrooloose/syntastic.git
+git clone https://github.com/godlygeek/tabular
 git clone git@github.com:Valloric/YouCompleteMe.git
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
