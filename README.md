@@ -32,3 +32,6 @@ __Reference Link__ : http://www.tecmint.com/powerline-adds-powerful-statuslines-
  * Tmux
  * Vim
  * hnb
+
+### Tmux Read
+* https://leanpub.com/the-tao-of-tmux/read
