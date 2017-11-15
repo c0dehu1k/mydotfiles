@@ -1,3 +1,6 @@
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 git clone https://github.com/avakhov/vim-yaml
@@ -13,7 +16,6 @@ git clone git@github.com:vim-airline/vim-airline.git
 git clone git@github.com:vim-airline/vim-airline-themes.git
 git clone git@github.com:scrooloose/syntastic.git
 git clone https://github.com/godlygeek/tabular
-git clone https://github.com/ryanoasis/vim-devicons.git
 git clone git@github.com:Valloric/YouCompleteMe.git
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
