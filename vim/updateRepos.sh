@@ -22,6 +22,8 @@ cd ../vim-fugitive
 git pull
 cd ../vim-repeat
 git pull
+cd ../vim-markdown
+git pull
 cd ../YouCompleteMe
 git pull
 git submodule update --init --recursive
