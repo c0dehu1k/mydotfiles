@@ -134,3 +134,11 @@ let g:NERDCommentEmptyLines = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.pyc,*.pyc,*.pdf,*.doc,*.pptx,*.docx  " Don't need them to open in VIM atleast
 set wildignore+=*.png,*.mov,*.mp3,*.mp4,*.xlsx,*.xls,*.jpg,*.jpeg,*.dll,*.py~,*.pyo,*.tar.gz
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
