@@ -1,3 +1,4 @@
+cd ~/.vim/bundle
 cd vim-sensible
 git pull
 cd ../ctrlp.vim
@@ -6,6 +7,7 @@ cd ../nerdtree
 git pull
 cd ../python-mode
 git pull
+git submodule update --init --recursive
 cd ../vim-nerdtree-tabs
 git pull
 cd ../nerdcommenter
