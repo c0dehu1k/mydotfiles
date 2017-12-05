@@ -18,10 +18,11 @@ set laststatus=2
 set encoding=utf-8
 set history=700
 set undolevels=700
+set foldmethod=syntax
 set nofoldenable
 set clipboard=unnamed
 set expandtab
-set colorcolumn=80
+set colorcolumn=120
 set smarttab
 
 " Key Mapping for Python Debugger
@@ -103,6 +104,8 @@ set go-=L  "remove left-hand scroll bar
 let g:autopep8_max_line_length=120
 
 " Pymode Confirguration Parameters
+" Trim unused white spaces on save. 
+let g:pymode_trim_whitespaces = 1
 let g:pymode_options_max_line_length = 120
 let g:pymode_options_colorcolumn = 1
 let g:pymode_virtualenv = 1
@@ -113,7 +116,10 @@ let g:pymode_lint_cwindow = 1
 let g:pymode_lint_on_fly = 1
 let g:pymode_lint_checkers = ['pyflakes','pep8']
 let g:pymode_rope_regenerate_on_write = 0
-
+let g:pymode_motion = 1
+let g:pymode_folding = 1
+" Binds keys to run python code 
+let g:pymode_run_bind = '<leader>r'
 " Syntastic max line length to 120 characters
 let g:syntastic_python_pylint_post_args="--max-line-length=120"
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
