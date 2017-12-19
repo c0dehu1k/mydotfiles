@@ -25,6 +25,7 @@ set expandtab
 set colorcolumn=120
 set smarttab
 set showcmd
+set scrolloff=7
 
 " Key Mapping for Python Debugger
 au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
