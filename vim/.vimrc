@@ -16,14 +16,15 @@ set nowritebackup
 set noswapfile
 set laststatus=2
 set encoding=utf-8
-set history=700
-set undolevels=700
+set history=1000
+set undolevels=1000
 set foldmethod=syntax
 set nofoldenable
 set clipboard=unnamed
 set expandtab
 set colorcolumn=120
 set smarttab
+set showcmd
 
 " Key Mapping for Python Debugger
 au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
