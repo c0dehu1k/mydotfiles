@@ -1,0 +1,2 @@
+cd ~/.tmux
+git pull
