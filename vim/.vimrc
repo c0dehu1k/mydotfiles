@@ -117,6 +117,9 @@ let g:pymode_lint_message = 1
 let g:pymode_lint_cwindow = 1
 let g:pymode_lint_on_fly = 1
 let g:pymode_lint_checkers = ['pyflakes','pep8']
+" Temporary Change: Add the Error/Warning Code to ignore
+let g:pymode_lint_ignore=""
+
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_motion = 1
 let g:pymode_folding = 1
