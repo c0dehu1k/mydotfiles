@@ -117,14 +117,18 @@ let g:pymode_lint_message = 1
 let g:pymode_lint_cwindow = 1
 let g:pymode_lint_on_fly = 1
 let g:pymode_lint_checkers = ['pyflakes','pep8']
+" Temporary Change: Add the Error/Warning Code to ignore
+let g:pymode_lint_ignore=""
+
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_motion = 1
 let g:pymode_folding = 1
 " Binds keys to run python code 
 let g:pymode_run_bind = '<leader>r'
 " Syntastic max line length to 120 characters
-let g:syntastic_python_pylint_post_args="--max-line-length=120"
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+# let g:syntastic_python_pylint_post_args="--max-line-length=120"
+# let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:syntastic_ignore_files = ['\.py$']
 
 "vim-airline Related Configurations
 if !exists('g:airline_symbols')
