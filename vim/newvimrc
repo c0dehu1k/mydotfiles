@@ -30,7 +30,7 @@ set nocompatible              " required
 filetype on
 filetype plugin on
 filetype plugin indent on
-set hidden
+" set hidden
 set showtabline=0
 let mapleader = ","
 
@@ -49,7 +49,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                " Project and file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
 Plugin 'majutsushi/tagbar'                  " Class/module browser
-Plugin 'vim-ctrlspace/vim-ctrlspace'        " Tabs/Buffers/Fuzzy/Workspaces/Bookmarks
+" Plugin 'vim-ctrlspace/vim-ctrlspace'        " Tabs/Buffers/Fuzzy/Workspaces/Bookmarks
 Plugin 'mileszs/ack.vim'                    " Ag/Grep
 Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
@@ -101,10 +101,10 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 set encoding=utf-8
-let base16colorspace=256
-set t_Co=256                                " 256 colors
+" let base16colorspace=256
+" set t_Co=256                                " 256 colors
 set guifont=mononoki\ Nerd\ Font\ 18
-colorscheme sandydune
+colorscheme lucid
 syntax enable                               " enable syntax highlighting
 
 set pyxversion=0
@@ -195,6 +195,7 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline_powerline_fonts=1
+let g:airline_theme='papercolor'
 
 
 "=====================================================
@@ -298,7 +299,7 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 0
 "=====================================================
 "" SnipMate settings
 "=====================================================
-let g:snippets_dir='~/.vim/vim-snippets/snippets'
+" let g:snippets_dir='~/.vim/vim-snippets/snippets'
 
 "=====================================================
 "" Rainbow Parentheses Autoload 
@@ -311,7 +312,7 @@ au Syntax * RainbowParenthesesLoadBraces
 "=====================================================
 "" Indent Guides Settings 
 "=====================================================
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set listchars=tab:▸\ ,eol:¬,trail:•,extends:#,nbsp:.
 "=====================================================
 "" Python settings
 "=====================================================
@@ -410,9 +411,6 @@ vno <up> <Nop>
 
 " My Old Setting rearrange them as per sections above
 " ++++++++++++++++++++++++++++++++++++++++++++++++++
-" For Display of Hidden Characters
-set listchars=tab:▸\ ,eol:¬
-
 " Default Key Mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
