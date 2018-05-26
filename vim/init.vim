@@ -65,7 +65,7 @@ Plugin 'roxma/nvim-yarp'                    " Deoplete Dependency #1
 Plugin 'roxma/vim-hug-neovim-rpc'           " Deoplete Dependency #2
 Plugin 'zchee/deoplete-jedi'                " deoplete.nvim source for Python
 " Plugin 'ctrlpvim/ctrlp.vim'                 " Searching files  in the project
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-repeat'                   " Repeat combination of commands with dot(.)
 Plugin 'tpope/vim-fugitive'                 " a Git wrapper so awesome
@@ -449,7 +449,7 @@ nnoremap <leader>cf :let @"=expand("%:t")<CR>
 nnoremap <leader>cd :let @"=expand("%:p:h")<CR>
 
 " FZF Plugin metting
-nnoremap <C-p> :FZF ~/GitRepo <CR>
+nnoremap <C-p> :GitFiles<CR>
 
 " Control p Plugin Setting
 " =========================
