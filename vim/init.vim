@@ -467,3 +467,5 @@ nnoremap <C-p> :GitFiles<CR>
 " Uncomment below lines to debug deoplete plugin
 " let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 " let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+" Count number of matches of a pattern
+map ,* *<C-O>:%s///gn<CR>
