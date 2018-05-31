@@ -174,7 +174,9 @@ let g:deoplete_disable_auto_complete=1
 " Neovim's Python provider
 "----------------------------------------------------------
 let g:python_host_prog  = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.6'
+let g:python3_host_prog = '/usr/local/bin/python3.6' " For Mac
+" let g:python3_host_prog = '/usr/bin/python3' " For Ubuntu
+
 
 "=====================================================
 "" Relative Numbering
@@ -226,8 +228,9 @@ nmap <F8> :TagbarToggle<CR>
 "" NERDTree settings
 "=====================================================
 "Below list has used to ignore the type of file we want NerdTress to display
-let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$','__pycache__$']    " Ignore files in NERDTree
-let NERDTreeWinSize=40
+" Ignore files in NERDTree
+let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$','__pycache__$','\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$','\.exe$','\.com$','\.dmg$']
+let NERDTreeWinSize=35
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 let g:nerdtree_tabs_open_on_console_startup=0
 map <C-n> :NERDTreeToggle<CR>
@@ -334,6 +337,8 @@ set listchars=tab:▸\ ,eol:¬,trail:•,extends:#,nbsp:.
 " let g:pymode_python='python'
 " For Python 3
 let g:pymode_python='python3'
+" let g:pymode_options_max_line_length = 120
+" let g:autopep8_max_line_length=120
 
 " rope
 let g:pymode_rope=0
@@ -354,7 +359,7 @@ let g:pymode_lint_unmodified = 1
 let g:pymode_lint_message = 1
 let g:pymode_lint_cwindow = 1
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_ignore = ['C0111']
+let g:pymode_lint_ignore = ['C0111', 'E2', 'E501']
 " virtualenv
 let g:pymode_virtualenv=1
 
