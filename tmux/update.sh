@@ -1,2 +1,0 @@
-cd ~/.tmux
-git pull
