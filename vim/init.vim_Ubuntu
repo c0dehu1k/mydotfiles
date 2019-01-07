@@ -402,7 +402,11 @@ let g:pymode_indent=1
 " code running
 let g:pymode_run=1
 let g:pymode_run_bind='<F5>'
-
+" Check Python files with flake8 and pylint.
+" Fix Python files with autopep8 and yapf.
+let g:ale_pattern_options = {
+\ '\.py$': {'ale_linters': ['flake8', 'pylint'], 'ale_fixers': ['autopep8']},
+\}
 let g:ale_sign_column_always = 0
 let g:ale_emit_conflict_warnings = 0                                                                         
 let g:airline#extensions#ale#enabled = 1
