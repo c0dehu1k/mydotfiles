@@ -3,6 +3,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+alias tmux='tmux -u'
 
 alias cd2='cd ../../'
 alias cd3='cd ../../../'
