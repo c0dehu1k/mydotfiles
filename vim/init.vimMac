@@ -414,13 +414,15 @@ set listchars=tab:▸\ ,eol:¬,trail:•,extends:#,nbsp:.
 
 " Check Python files with flake8 and pylint.
 " Fix Python files with autopep8 and yapf.
+
+let g:ale_enabled = 0
 let g:ale_pattern_options = {
-\ '\.py$': {'ale_linters': ['flake8', 'pylint'], 'ale_fixers': ['autopep8']},
+\ '\.py$': {'ale_linters': ['pep8', 'flake8', 'pylint'], 'ale_fixers': ['autopep8']},
 \}
 let g:ale_sign_column_always = 0
 let g:ale_emit_conflict_warnings = 0                                                                         
 let g:airline#extensions#ale#enabled = 1
-let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope_lookup_project = 0
 let g:airline#extensions#tabline#enabled = 1
 
 " imap <F5> <Esc>:w<CR>:!clear;python %<CR>
@@ -484,3 +486,5 @@ nnoremap <C-p> :GitFiles<CR>
 " let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 " Count number of matches of a pattern
 map ,* *<C-O>:%s///gn<CR>
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "/!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
