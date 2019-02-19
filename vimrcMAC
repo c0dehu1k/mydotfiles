@@ -59,7 +59,7 @@ Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
 " Plugin 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 " Plugin 'MattesGroeger/vim-bookmarks'        " Bookmarks
 Plugin 'thaerkh/vim-indentguides'           " Visual representation of indents
-Plugin 'neomake/neomake'                    " Asynchronous Linting and Make Framework
+" Plugin 'neomake/neomake'                    " Asynchronous Linting and Make Framework
 Plugin 'Shougo/deoplete.nvim'               " Asynchronous Completion
 Plugin 'roxma/nvim-yarp'                    " Deoplete Dependency #1
 Plugin 'roxma/vim-hug-neovim-rpc'           " Deoplete Dependency #2
@@ -162,8 +162,8 @@ nmap <silent> <leader>q :SyntasticCheck # <CR> :bp <BAR> bd #<CR>
 "=====================================================
 "" Neomake Settings
 "=====================================================
-call neomake#configure#automake('w')
-let g:neomake_open_list = 2
+" call neomake#configure#automake('w')
+" let g:neomake_open_list = 2
 
 "=====================================================
 "" Deoplete  Settings
