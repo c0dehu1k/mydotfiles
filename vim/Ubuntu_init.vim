@@ -59,11 +59,11 @@ Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
 " Plugin 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 " Plugin 'MattesGroeger/vim-bookmarks'        " Bookmarks
 Plugin 'thaerkh/vim-indentguides'           " Visual representation of indents
-Plugin 'neomake/neomake'                    " Asynchronous Linting and Make Framework
-Plugin 'Shougo/deoplete.nvim'               " Asynchronous Completion
-Plugin 'roxma/nvim-yarp'                    " Deoplete Dependency #1
-Plugin 'roxma/vim-hug-neovim-rpc'           " Deoplete Dependency #2
-Plugin 'zchee/deoplete-jedi'                " deoplete.nvim source for Python
+" Plugin 'neomake/neomake'                    " Asynchronous Linting and Make Framework
+" Plugin 'Shougo/deoplete.nvim'               " Asynchronous Completion
+" Plugin 'roxma/nvim-yarp'                    " Deoplete Dependency #1
+" Plugin 'roxma/vim-hug-neovim-rpc'           " Deoplete Dependency #2
+" Plugin 'zchee/deoplete-jedi'                " deoplete.nvim source for Python
 Plugin 'davidhalter/jedi-vim'               "python autocompletion
 " Plugin 'ctrlpvim/ctrlp.vim'                 " Searching files  in the project
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -71,13 +71,16 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-repeat'                   " Repeat combination of commands with dot(.)
 Plugin 'tpope/vim-fugitive'                 " a Git wrapper so awesome
 Plugin 'ludovicchabant/vim-gutentags'       
-
+Plugin 'mattn/emmet-vim'                    " vim plug-in which provides support for expanding abbreviations similar to https://emmet.io/
+" Plugin 'itchyny/lightline.vim'               "A light and configurable statusline/tabline plugin for Vim
 "-------------------=== Other ===-------------------------------
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'flazz/vim-colorschemes'             " Colorschemes
 " Plugin 'vimwiki/vimwiki'                    " Personal Wiki
 " Plugin 'jreybert/vimagit'                   " Git Operations
-Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
+"
+Plugin 'Raimondi/delimitMate'
+" Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 " Plugin 'chriskempson/base16-vim'            " Base 16 colors
 Plugin 'ryanoasis/vim-devicons'             " Dev Icons
 
@@ -86,11 +89,12 @@ Plugin 'ryanoasis/vim-devicons'             " Dev Icons
 " Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
 " Plugin 'tomtom/tlib_vim'                    " dependencies #2
 " Plugin 'honza/vim-snippets'                 " snippets repo
-
+" Plugin 'terryma/vim-multiple-cursors'
 "-------------------=== Languages support ===-------------------
 Plugin 'scrooloose/nerdcommenter'           " Easy code documentation
 " Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
 Plugin 'w0rp/ale'
+Plugin 'jremmen/vim-ripgrep'
 
 "-------------------=== Python  ===-----------------------------
 " Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
@@ -174,8 +178,13 @@ let g:deoplete_disable_auto_complete=1
 "----------------------------------------------------------
 " Neovim's Python provider
 "----------------------------------------------------------
-let g:python_host_prog  = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.6'
+" For Mac
+" let g:python_host_prog  = '/usr/local/bin/python2.7'
+" let g:python3_host_prog = '/usr/local/bin/python3.7'
+" For Ubuntu
+let g:python_host_prog  = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+
 
 "=====================================================
 "" Relative Numbering
@@ -206,7 +215,7 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline_powerline_fonts=1
-let g:airline_theme='papercolor'
+let g:airline_theme='powerlineish'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline#extensions#hunks#enabled=0
@@ -227,8 +236,9 @@ nmap <F8> :TagbarToggle<CR>
 "" NERDTree settings
 "=====================================================
 "Below list has used to ignore the type of file we want NerdTress to display
-let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$','__pycache__$']    " Ignore files in NERDTree
-let NERDTreeWinSize=40
+" Ignore files in NERDTree
+let NERDTreeIgnore = ['\.pyc$','\.png$','\.pyo$','__pycache__$','\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$','\.exe$','\.com$','\.dmg$']
+let NERDTreeWinSize=35
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 let g:nerdtree_tabs_open_on_console_startup=0
 map <C-n> :NERDTreeToggle<CR>
@@ -317,10 +327,10 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 0
 "=====================================================
 "" Rainbow Parentheses Autoload 
 "=====================================================
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 "=====================================================
 "" Indent Guides Settings 
@@ -334,86 +344,91 @@ set listchars=tab:▸\ ,eol:¬,trail:•,extends:#,nbsp:.
 " For Python 2
 " let g:pymode_python='python'
 " For Python 3
-let g:pymode_python='python3'
+" let g:pymode_python='python3'
+" let g:pymode_options_max_line_length = 120
+" let g:autopep8_max_line_length=120
 
 " rope
-let g:pymode_rope=0
-let g:pymode_rope_completion=0
-let g:pymode_rope_complete_on_dot=0
-let g:pymode_rope_auto_project=0
-let g:pymode_rope_enable_autoimport=0
-let g:pymode_rope_autoimport_generate=0
-let g:pymode_rope_guess_project=0
+" let g:pymode_rope=0
+" let g:pymode_rope_completion=0
+" let g:pymode_rope_complete_on_dot=0
+" let g:pymode_rope_auto_project=0
+" let g:pymode_rope_enable_autoimport=0
+" let g:pymode_rope_autoimport_generate=0
+" let g:pymode_rope_guess_project=0
 
 " documentation
-let g:pymode_doc=0
-let g:pymode_doc_bind='K'
+" let g:pymode_doc=0
+" let g:pymode_doc_bind='K'
 
 " lints
-let g:pymode_lint=0
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_cwindow = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_ignore = ['C0111']
+" let g:pymode_lint=1
+" let g:pymode_lint_unmodified = 1
+" let g:pymode_lint_message = 1
+" let g:pymode_lint_cwindow = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+" let g:pymode_lint_ignore = ['E501', 'W']
 " virtualenv
-let g:pymode_virtualenv=1
-
-" breakpoints
-let g:pymode_breakpoint=1
-let g:pymode_breakpoint_cmd = 'import pudb; pudb.set_trace()  # XXX BREAKPOINT'
-let g:pymode_breakpoint_key='<leader>b'
+" let g:pymode_virtualenv=1
+"
+" " breakpoints
+" let g:pymode_breakpoint=1
+" let g:pymode_breakpoint_cmd = 'import pudb; pudb.set_trace()  # SJ BREAKPOINT'
+" let g:pymode_breakpoint_key='<leader>b'
 
 " syntax highlight
-let g:pymode_syntax=1
-let g:pymode_syntax_slow_sync=1
-let g:pymode_syntax_all=1
-let g:pymode_syntax_print_as_function=g:pymode_syntax_all
-let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
-let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_stars_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_self=g:pymode_syntax_all
-let g:pymode_syntax_indent_errors=g:pymode_syntax_all
-let g:pymode_syntax_string_formatting=g:pymode_syntax_all
-let g:pymode_syntax_space_errors=g:pymode_syntax_all
-let g:pymode_syntax_string_format=g:pymode_syntax_all
-let g:pymode_syntax_string_templates=g:pymode_syntax_all
-let g:pymode_syntax_doctests=g:pymode_syntax_all
-let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
-let g:pymode_syntax_builtin_types=g:pymode_syntax_all
-let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
-let g:pymode_syntax_docstrings=g:pymode_syntax_all
+" let g:pymode_syntax=1
+" let g:pymode_syntax_slow_sync=1
+" let g:pymode_syntax_all=1
+" let g:pymode_syntax_print_as_function=g:pymode_syntax_all
+" let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
+" let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
+" let g:pymode_syntax_highlight_stars_operator=g:pymode_syntax_all
+" let g:pymode_syntax_highlight_self=g:pymode_syntax_all
+" let g:pymode_syntax_indent_errors=g:pymode_syntax_all
+" let g:pymode_syntax_string_formatting=g:pymode_syntax_all
+" let g:pymode_syntax_space_errors=g:pymode_syntax_all
+" let g:pymode_syntax_string_format=g:pymode_syntax_all
+" let g:pymode_syntax_string_templates=g:pymode_syntax_all
+" let g:pymode_syntax_doctests=g:pymode_syntax_all
+" let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
+" let g:pymode_syntax_builtin_types=g:pymode_syntax_all
+" let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
+" let g:pymode_syntax_docstrings=g:pymode_syntax_all
 
-" highlight 'long' lines (>= 80 symbols) in python files
+" highlight 'long' lines (>= 120 symbols) in python files
 " augroup vimrc_autocmds
 "     autocmd!
 "     autocmd FileType python,rst,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
 "     autocmd FileType python,rst,c,cpp match Excess /\%81v.*/
 "     autocmd FileType python,rst,c,cpp set nowrap
-"     autocmd FileType python,rst,c,cpp set colorcolumn=80
+"     autocmd FileType python,rst,c,cpp set colorcolumn=120
 " augroup END
 
 " code folding
-let g:pymode_folding=0
+" let g:pymode_folding=0
 
 " pep8 indents
-let g:pymode_indent=1
+" let g:pymode_indent=1
 
 " code running
-let g:pymode_run=1
-let g:pymode_run_bind='<F5>'
+" let g:pymode_run=1
+" let g:pymode_run_bind='<F5>'
+
 " Check Python files with flake8 and pylint.
 " Fix Python files with autopep8 and yapf.
+
+let g:ale_enabled = 0
 let g:ale_pattern_options = {
-\ '\.py$': {'ale_linters': ['flake8', 'pylint'], 'ale_fixers': ['autopep8']},
+\ '\.py$': {'ale_linters': ['pep8', 'flake8', 'pylint'], 'ale_fixers': ['autopep8']},
 \}
 let g:ale_sign_column_always = 0
 let g:ale_emit_conflict_warnings = 0                                                                         
 let g:airline#extensions#ale#enabled = 1
-let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope_lookup_project = 0
 let g:airline#extensions#tabline#enabled = 1
 
-imap <F5> <Esc>:w<CR>:!clear;python %<CR>
+" imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
 " Below Mentioned commands will disable the Arrow keys
 " in read mode, insert mode and visual mode
@@ -472,3 +487,7 @@ nnoremap <C-p> :GitFiles<CR>
 " Uncomment below lines to debug deoplete plugin
 " let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 " let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+" Count number of matches of a pattern
+map ,* *<C-O>:%s///gn<CR>
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "/!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
