@@ -491,3 +491,5 @@ nnoremap <C-p> :GitFiles<CR>
 map ,* *<C-O>:%s///gn<CR>
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "/!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+autocmd BufWinEnter *.py nnoremap <F2> :w<CR>:!python %:p<CR>
+autocmd BufWinEnter *.py nnoremap <F3> :w<CR>:!python3 %:p<CR>
