@@ -9,6 +9,8 @@
 filetype on
 filetype plugin on
 filetype plugin indent on
+
+" Set mapleader key to ,
 let mapleader = ","
 call plug#begin('~/.vim/plugged')
 
@@ -140,9 +142,6 @@ endif
 " Allow vim to set a custom font or color for a word
 syntax enable
 
-" Set the leader button
-let mapleader = ','
-
 " Autosave buffers before leaving them
 autocmd BufLeave * silent! :wa
 
@@ -241,12 +240,6 @@ augroup END
 
 " Toggle display hidden chars
 nnoremap <leader>l :set list!<CR>
-" Copy absolute path  with filename
-nnoremap <leader>cp :let @"=expand("%:p")<CR>
-" Copy Only Filename (foo.txt)
-nnoremap <leader>cf :let @"=expand("%:t")<CR>
-" Copy only the directory of the file
-nnoremap <leader>cd :let @"=expand("%:p:h")<CR>
 "----------------------------------------------
 " Splits
 "----------------------------------------------
