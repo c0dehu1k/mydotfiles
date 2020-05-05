@@ -97,7 +97,7 @@ set autoread                      " reload file if the file changes on the disk
 set autowrite                     " write when switching buffers
 set autowriteall                  " write on :quit
 set clipboard=unnamedplus
-set colorcolumn=81                " highlight the 80th column as an indicator
+set colorcolumn=121                " highlight the 80th column as an indicator
 set completeopt-=preview          " remove the horrendous preview window
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
@@ -128,6 +128,8 @@ if has('nvim')
     " pip3.6 install -U neovim
     let g:python_host_prog = '/usr/bin/python2'
     let g:python3_host_prog = '/usr/local/bin/python3'
+    " let g:python3_host_prog = '/usr/bin/python3'
+    " This line will work on Mac
 endif
 
 " Enable mouse if possible
