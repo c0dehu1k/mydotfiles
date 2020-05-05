@@ -5,7 +5,13 @@
 " instructions:
 " https://github.com/junegunn/vim-plug
 "----------------------------------------------
+
+filetype on
+filetype plugin on
+filetype plugin indent on
+let mapleader = ","
 call plug#begin('~/.vim/plugged')
+
 
 " Dependencies
 Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
@@ -96,8 +102,8 @@ set completeopt-=preview          " remove the horrendous preview window
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     " expands tabs to spaces
-set list                          " show trailing whitespace
-set listchars=tab:\|\ ,trail:▫
+" set list                          " show trailing whitespace
+set listchars=tab:▸\ ,eol:¬,trail:•,extends:#,nbsp:.
 set nospell                       " disable spelling
 set noswapfile                    " disable swapfile usage
 set nowrap
@@ -111,6 +117,8 @@ set softtabstop=2
 set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
+set ic                            " Igonore case
+set switchbuf=useopen
 
 " neovim specific settings
 if has('nvim')
@@ -119,7 +127,7 @@ if has('nvim')
     " example:
     " pip3.6 install -U neovim
     let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python3'
+    let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
 " Enable mouse if possible
@@ -201,6 +209,18 @@ nnoremap N Nzzzv
 "----------------------------------------------
 " Navigation
 "----------------------------------------------
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -217,6 +237,14 @@ augroup qf
     autocmd FileType qf set nobuflisted
 augroup END
 
+" Toggle display hidden chars
+nnoremap <leader>l :set list!<CR>
+" Copy absolute path  with filename
+nnoremap <leader>cp :let @"=expand("%:p")<CR>
+" Copy Only Filename (foo.txt)
+nnoremap <leader>cf :let @"=expand("%:t")<CR>
+" Copy only the directory of the file
+nnoremap <leader>cd :let @"=expand("%:p:h")<CR>
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -383,6 +411,13 @@ nnoremap <c-p> :FZF<cr>
 " Add shortcut for toggling the tag bar
 nnoremap <F3> :TagbarToggle<cr>
 
+let g:tagbar_autofocus=0
+let g:tagbar_width=42
+" Below mentioned commands is making toggle of tagbar fail as type of file is
+" *.py and its keep on opening it again and again even after toogle
+" autocmd BufEnter *.py :call tagbar#autoopen(0)
+autocmd BufWinLeave *.py :TagbarClose
+autocmd BufWinLeave *.go :TagbarClose
 " Language: Go
 " Tagbar configuration for Golang
 let g:tagbar_type_go = {
@@ -443,6 +478,60 @@ let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
+
+"----------------------------------------------
+"" DevIcon Settings
+"----------------------------------------------
+" loading the plugin
+let g:webdevicons_enable = 1
+
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+
+" adding to vim-airline's tabline
+let g:webdevicons_enable_airline_tabline = 1
+
+" adding to vim-airline's statusline
+let g:webdevicons_enable_airline_statusline = 1
+
+" turn on/off file node glyph decorations (not particularly useful)
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+
+" use double-width(1) or single-width(0) glyphs
+" only manipulates padding, has no effect on terminal or set(guifont) font
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+" whether or not to show the nerdtree brackets around flags
+let g:webdevicons_conceal_nerdtree_brackets = 0
+
+" the amount of space to use after the glyph character (default ' ')
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+" Force extra padding in NERDTree so that the filetype icons line up vertically
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+" change the default character when no match found
+let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
+
+" set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
+" disabled by default with no value
+let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
+
+" enable folder/directory glyph flag (disabled by default with 0)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+" enable open and close folder/directory glyph flags (disabled by default with 0)
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" enable pattern matching glyphs on folder/directory (enabled by default with 1)
+let g:DevIconsEnableFolderPatternMatching = 1
+
+" enable file extension pattern matching glyphs on folder/directory (disabled by default with 0)
+let g:DevIconsEnableFolderExtensionPatternMatching = 0
+
+
+
+
 "----------------------------------------------
 " Plugin: scrooloose/nerdtree
 "----------------------------------------------
@@ -450,18 +539,22 @@ nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <F2> :NERDTreeToggle<cr>
 
 " Files to ignore
+
 let NERDTreeIgnore = [
+    \ '\.pyc$','\.png$','\.pyo$','__pycache__$','\.png$','\.jpg$',
+    \ '\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$',
+    \ '.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$',
+    \ '\.exe$','\.com$','\.dmg$',
     \ '\~$',
     \ '\.pyc$',
     \ '^\.DS_Store$',
     \ '^node_modules$',
     \ '^.ropeproject$',
     \ '^__pycache__$',
-    \ '\.jpeg$',
-    \ '\.pyo$',
-    \ '\.docx$',
-    \ '\.jpg$'
 \]
+let NERDTreeWinSize=35
+autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+let g:nerdtree_tabs_open_on_console_startup=0
 
 " Close vim if NERDTree is the only opened window.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -471,6 +564,32 @@ let NERDTreeShowHidden = 1
 
 " Allow NERDTree to change session root.
 let g:NERDTreeChDirMode = 2
+
+
+"-----------------------------------------------------
+"" NERDComment Settings
+"-----------------------------------------------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
 
 "----------------------------------------------
 " Plugin: sebdah/vim-delve
@@ -487,7 +606,8 @@ let g:delve_backend = "native"
 " Below you can disable default snippets for specific languages. If you set the
 " language to _ it sets the default for all languages.
 let g:neosnippet#disable_runtime_snippets = {
-    \ 'go': 1
+    \ 'go': 1,
+    \ 'python' : 1
 \}
 
 " Keybindings
@@ -539,11 +659,13 @@ au FileType go set tabstop=4
 au FileType go nmap <F8> :GoMetaLinter<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
+au FileType go nmap <leader>gr  <Plug>(go-run)
 au FileType go nmap <F12> <Plug>(go-def)
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au FileType go nmap <leader>gt :GoDeclsDir<cr>
+" It conflicts with tab change
+" au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
 au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
