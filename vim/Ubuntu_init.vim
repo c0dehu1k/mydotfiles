@@ -87,6 +87,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ayu-theme/ayu-vim'
 Plug 'kaicataldo/material.vim'
 Plug 'rakr/vim-one'
+Plug 'ekalinin/dockerfile.vim'                " For Docker File
 
 call plug#end()
 
@@ -414,7 +415,8 @@ let g:tagbar_width=42
 autocmd BufWinLeave *.py :TagbarClose
 autocmd BufWinLeave *.go :TagbarClose
 " Language: Go
-" Tagbar configuration for Golang
+"Tagbar configuration for Golang
+" let g:go_gotags_bin = '/Users/sunijosh/go/bin/gotags'
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
