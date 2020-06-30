@@ -90,6 +90,7 @@ Plug 'rakr/vim-one'
 Plug 'ekalinin/dockerfile.vim'                " For Docker File
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -256,6 +257,19 @@ nnoremap <leader>h :split<cr>
 
 " Closing splits
 nnoremap <leader>q :close<cr>
+
+"----------------------------------------------
+" Plugin: ludovicchabant/vim-gutentags
+" ---------------------------------------------
+" enable gtags module
+let g:gutentags_modules = ['ctags']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root','.git']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
 
 "----------------------------------------------
 " Plugin: MattesGroeger/vim-bookmarks
@@ -657,7 +671,7 @@ let g:multi_cursor_skip_key='<C-b>'
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 " don't give |ins-completion-menu| messages.
