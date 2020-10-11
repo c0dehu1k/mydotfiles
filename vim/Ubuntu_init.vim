@@ -90,7 +90,6 @@ Plug 'rakr/vim-one'
 Plug 'ekalinin/dockerfile.vim'                " For Docker File
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -257,19 +256,6 @@ nnoremap <leader>h :split<cr>
 
 " Closing splits
 nnoremap <leader>q :close<cr>
-
-"----------------------------------------------
-" Plugin: ludovicchabant/vim-gutentags
-" ---------------------------------------------
-" enable gtags module
-let g:gutentags_modules = ['ctags']
-
-" config project root markers.
-let g:gutentags_project_root = ['.root','.git']
-
-" generate datebases in my cache directory, prevent gtags files polluting my project
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-
 
 "----------------------------------------------
 " Plugin: MattesGroeger/vim-bookmarks
@@ -703,18 +689,10 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use U to show documentation in preview window
 nnoremap <silent> U :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -752,12 +730,13 @@ au FileType go set tabstop=4
 " au FileType go nmap <F8> :GoMetaLinter<cr>
 " au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 " au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap <leader>gr  <Plug>(go-run)
+" au FileType go nmap <leader>gr  <Plug>(go-run)
 " au FileType go nmap <F12> <Plug>(go-def)
 " au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 " au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 " au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-
+map <leader>rp :w<CR>:!python3 %<CR>
+map <leader>rg :w<CR>:!go run %<CR>
 " It conflicts with tab change
 " au FileType go nmap <leader>gt :GoDeclsDir<cr>
 " au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
