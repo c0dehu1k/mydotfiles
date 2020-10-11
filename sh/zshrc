@@ -124,6 +124,10 @@ alias tmux="tmux -u"
 alias cd2="cd ../.."
 alias cd3="cd ../../.."
 alias cd4="cd ../../../.."
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin
+# sudo apt install xclip
+alias copy='xclip -sel clip'
 
 
 ######### taskwarrior Aliases ================
@@ -144,5 +148,7 @@ alias thu="task due:thu"
 alias fri="task due:fri"
 alias sat="task due:sat"
 alias sun="task due:sun"
+
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
