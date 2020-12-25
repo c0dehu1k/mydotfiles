@@ -41,7 +41,7 @@ Plug 'neomake/neomake'
 "Plug 'rbgrouleff/bclose.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
@@ -271,30 +271,30 @@ let g:bookmark_no_default_key_mappings = 1
 
 " Configure key mappings
 " This part also fixes conflicts with NERDTree
-function! BookmarkMapKeys()
-    nmap Mm :BookmarkToggle<cr>
-    nmap Mi :BookmarkAnnotate<cr>
-    nmap Mn :BookmarkNext<cr>
-    nmap Mp :BookmarkPrev<cr>
-    nmap Ma :BookmarkShowAll<cr>
-    nmap Mc :BookmarkClear<cr>
-    nmap Mx :BookmarkClearAll<cr>
-    nmap Mkk :BookmarkMoveUp
-    nmap Mjj :BookmarkMoveDown
-endfunction
-function! BookmarkUnmapKeys()
-    unmap Mm
-    unmap Mi
-    unmap Mn
-    unmap Mp
-    unmap Ma
-    unmap Mc
-    unmap Mx
-    unmap Mkk
-    unmap Mjj
-endfunction
-autocmd BufEnter * :call BookmarkMapKeys()
-autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
+" function! BookmarkMapKeys()
+"     nmap Mm :BookmarkToggle<cr>
+"     nmap Mi :BookmarkAnnotate<cr>
+"     nmap Mn :BookmarkNext<cr>
+"     nmap Mp :BookmarkPrev<cr>
+"     nmap Ma :BookmarkShowAll<cr>
+"     nmap Mc :BookmarkClear<cr>
+"     nmap Mx :BookmarkClearAll<cr>
+"     nmap Mkk :BookmarkMoveUp
+"     nmap Mjj :BookmarkMoveDown
+" endfunction
+" function! BookmarkUnmapKeys()
+"     unmap Mm
+"     unmap Mi
+"     unmap Mn
+"     unmap Mp
+"     unmap Ma
+"     unmap Mc
+"     unmap Mx
+"     unmap Mkk
+"     unmap Mjj
+" endfunction
+" autocmd BufEnter * :call BookmarkMapKeys()
+" autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
@@ -489,7 +489,7 @@ let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 let g:webdevicons_enable = 1
 
 " adding the flags to NERDTree
-let g:webdevicons_enable_nerdtree = 1
+" let g:webdevicons_enable_nerdtree = 1
 
 " adding to vim-airline's tabline
 let g:webdevicons_enable_airline_tabline = 1
@@ -505,13 +505,13 @@ let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
 " whether or not to show the nerdtree brackets around flags
-let g:webdevicons_conceal_nerdtree_brackets = 0
+" let g:webdevicons_conceal_nerdtree_brackets = 0
 
 " the amount of space to use after the glyph character (default ' ')
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 " Force extra padding in NERDTree so that the filetype icons line up vertically
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 " change the default character when no match found
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
@@ -538,35 +538,35 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 0
 "----------------------------------------------
 " Plugin: scrooloose/nerdtree
 "----------------------------------------------
-nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <F2> :NERDTreeToggle<cr>
+" nnoremap <leader>d :NERDTreeToggle<cr>
+" nnoremap <F2> :NERDTreeToggle<cr>
 
 " Files to ignore
 
-let NERDTreeIgnore = [
-    \ '\.pyc$','\.png$','\.pyo$','__pycache__$','\.png$','\.jpg$',
-    \ '\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$',
-    \ '.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$',
-    \ '\.exe$','\.com$','\.dmg$',
-    \ '\~$',
-    \ '\.pyc$',
-    \ '^\.DS_Store$',
-    \ '^node_modules$',
-    \ '^.ropeproject$',
-    \ '^__pycache__$',
-\]
-let NERDTreeWinSize=35
-autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
-let g:nerdtree_tabs_open_on_console_startup=0
-
-" Close vim if NERDTree is the only opened window.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" let NERDTreeIgnore = [
+"     \ '\.pyc$','\.png$','\.pyo$','__pycache__$','\.png$','\.jpg$',
+"     \ '\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$',
+"     \ '.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$',
+"     \ '\.exe$','\.com$','\.dmg$',
+"     \ '\~$',
+"     \ '\.pyc$',
+"     \ '^\.DS_Store$',
+"     \ '^node_modules$',
+"     \ '^.ropeproject$',
+"     \ '^__pycache__$',
+" \]
+" let NERDTreeWinSize=35
+" autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+" let g:nerdtree_tabs_open_on_console_startup=0
+"
+" " Close vim if NERDTree is the only opened window.
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Show hidden files by default.
-let NERDTreeShowHidden = 1
+" let NERDTreeShowHidden = 1
 
 " Allow NERDTree to change session root.
-let g:NERDTreeChDirMode = 2
+" let g:NERDTreeChDirMode = 2
 
 
 "-----------------------------------------------------
@@ -717,6 +717,48 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" -------------------------------------------------------------------------------------------------
+" coc.nvim explorer settings
+" -------------------------------------------------------------------------------------------------
+"
+" Explorer
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
+
+nmap <space>e :CocCommand explorer<CR>
+nmap <space>f :CocCommand explorer --preset floating<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 "----------------------------------------------
 " Language: Golang
