@@ -1,6 +1,8 @@
 tags
 .idea/
 .cache/
+./nvim/autoload/plugged/
+./nvim/autoload/plug.vim
 *.swp
 *.bak
 sec.conf
