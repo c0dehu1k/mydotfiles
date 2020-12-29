@@ -61,6 +61,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'ayu-theme/ayu-vim'
   Plug 'kaicataldo/material.vim'
   Plug 'rakr/vim-one'
+  Plug 'arcticicestudio/nord-vim'
 
   " For Docker File
   Plug 'ekalinin/dockerfile.vim'    

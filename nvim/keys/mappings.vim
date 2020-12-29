@@ -1,5 +1,5 @@
 " Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
+"map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
 
 " Center the screen quickly
 nnoremap <space> zz
