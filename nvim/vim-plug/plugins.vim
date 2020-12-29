@@ -54,5 +54,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " For Docker File
   Plug 'ekalinin/dockerfile.vim'    
+  
+  " On-demand lazy load
+  Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
