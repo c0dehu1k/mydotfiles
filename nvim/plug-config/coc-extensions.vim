@@ -2,6 +2,7 @@
 " coc.nvim explorer settings
 " -------------------------------------------------------------------------------------------------
 "
+let g:coc_global_extensions = ['coc-sh', 'coc-explorer','coc-go', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-yaml','coc-yaml','coc-python']
 " Explorer
 let g:coc_explorer_global_presets = {
 \   '.vim': {
