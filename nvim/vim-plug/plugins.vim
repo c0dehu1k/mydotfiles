@@ -68,5 +68,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   
   " On-demand lazy load
   Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+  
+  " https://github.com/nvim-telescope/telescope.nvim
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()

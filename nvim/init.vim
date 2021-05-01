@@ -34,6 +34,7 @@ source $HOME/.config/nvim/plug-config/vim-multiple-cursors.vim
 source $HOME/.config/nvim/plug-config/vim-tmux-navigator.vim
 source $HOME/.config/nvim/plug-config/vim-wiki.vim
 source $HOME/.config/nvim/plug-config/vim-which-key.vim
+source $HOME/.config/nvim/plug-config/telescope.vim
 
 " Language Specific Configurations
 source $HOME/.config/nvim/language/general.vim
