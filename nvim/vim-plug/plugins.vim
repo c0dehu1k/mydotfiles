@@ -14,7 +14,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
   
   " General plugins
-  Plug 'bling/vim-airline'
+  "Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 

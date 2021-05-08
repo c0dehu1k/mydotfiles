@@ -42,5 +42,3 @@ noremap <Right> <NOP>
 " center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-
