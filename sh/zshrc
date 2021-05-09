@@ -1,6 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/sunijosh/.oh-my-zsh"
+export ZSH="/home/sunilj/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,12 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
-
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,47 +104,33 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source /usr/local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-# source /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export LC_ALL=en_US.UTF-8
-alias vim="nvim"
-alias tmux="tmux -u"
-alias cd2="cd ../.."
-alias cd3="cd ../../.."
-alias cd4="cd ../../../.."
-export GOPATH=$HOME/go
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.pass-zsh-completion ] && source ~/.pass-zsh-completion
+
+# My alias
+alias tmux=tmux -u
+alias vim=nvim
+alias cd2=cd ../..
+alias cd3=cd ../../..
+alias cd4=cd ../../../..
+# export GOPATH=/usr/local/go
+export PATH=$PATH:/usr/local/go/bin
+#export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
-# sudo apt install xclip
-alias copy='xclip -sel clip'
+# alias for Ultralist
+alias u=ultralist
+alias ul=ultralist list
+
+# Clipboards
+alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
+alias vs="xclip -o -selection clipboard" # paste from system wide clipboard (equivalent to `v -selection clipboard`)
+
+#Youtube alias
 alias youtube-dl-best="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
-
-######### taskwarrior Aliases ================
-alias t="task"
-alias tl="task list"
-alias ta="task add"
-alias tan="task annotate"
-alias tm="task modify"
-alias td="task done"
-alias tp="task projects"
-alias tc="task completed"
-alias tod="task due:today"
-alias tom="task due:tomorrow"
-alias mon="task due:mon"
-alias tue="task due:tue"
-alias wed="task due:wed"
-alias thu="task due:thu"
-alias fri="task due:fri"
-alias sat="task due:sat"
-alias sun="task due:sun"
-
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# w3m Command line Browser
+alias w3m="w3m -s"
