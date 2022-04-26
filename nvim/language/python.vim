@@ -8,3 +8,4 @@ au FileType python set tabstop=4
 
 " To run python code 
 map <leader>rp :w<CR>:!python3 %<CR>
+map <leader>db iimport pudb;pudb.set_trace()<CR><ESC>
