@@ -18,15 +18,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
+  "Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 
   " For Tabs and spaces
   Plug 'editorconfig/editorconfig-vim'
   Plug 'tpope/vim-sleuth'
   
   " Fuzzy Finder
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  "Plug 'junegunn/fzf.vim'
 
   Plug 'majutsushi/tagbar'
   Plug 'mhinz/vim-signify'

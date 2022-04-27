@@ -20,10 +20,15 @@ source $HOME/.config/nvim/plug-config/ack.vim
 source $HOME/.config/nvim/plug-config/bclose.vim
 source $HOME/.config/nvim/plug-config/calendar.vim
 source $HOME/.config/nvim/plug-config/coc-extensions.vim
-source $HOME/.config/nvim/plug-config/ctrlp.vim
+" Using Telescope instead
+"source $HOME/.config/nvim/plug-config/ctrlp.vim
+
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
-source $HOME/.config/nvim/plug-config/fzf.vim
+
+" Using Telescope instead
+"source $HOME/.config/nvim/plug-config/fzf.vim
+
 source $HOME/.config/nvim/plug-config/neomake.vim
 source $HOME/.config/nvim/plug-config/neosnippet.vim
 source $HOME/.config/nvim/plug-config/tagbar.vim
