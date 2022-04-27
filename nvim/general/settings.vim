@@ -73,5 +73,7 @@ if has('nvim')
     set inccommand=split          " enables interactive search and replace
 endif
 
-
-
+" Disabling Language Providers
+let g:loaded_perl_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_ruby_provider = 0

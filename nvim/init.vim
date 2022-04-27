@@ -49,7 +49,6 @@ source $HOME/.config/nvim/language/go.vim
 source $HOME/.config/nvim/language/python.vim
 
 
-
 " Add paths to node and python here
 " if !empty(glob("~/.config/nvim/paths.vim"))
 "   source $HOME/.config/nvim/paths.vim
