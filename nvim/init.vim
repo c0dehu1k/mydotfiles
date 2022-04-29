@@ -41,6 +41,8 @@ source $HOME/.config/nvim/plug-config/vim-tmux-navigator.vim
 source $HOME/.config/nvim/plug-config/vim-wiki.vim
 source $HOME/.config/nvim/plug-config/vim-which-key.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/toggleterm.lua
+source $HOME/.config/nvim/plug-config/vim-gutentags.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 
 " Language Specific Configurations

@@ -78,5 +78,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'luochen1990/rainbow'
   
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'ludovicchabant/vim-gutentags'
+
+  " Floating Terminals
+  Plug 'akinsho/toggleterm.nvim'
 
 call plug#end()
