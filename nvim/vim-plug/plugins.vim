@@ -50,7 +50,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " Markdown syntax highlighting    
   Plug 'plasticboy/vim-markdown'                 
-  Plug 'jiangmiao/auto-pairs'
+  "Plug 'jiangmiao/auto-pairs'
+  Plug 'windwp/nvim-autopairs'
 
   Plug 'altercation/vim-colors-solarized'
              

@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/sunilj/.oh-my-zsh"
+export ZSH="/Users/josunil/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,17 +113,11 @@ source $ZSH/oh-my-zsh.sh
 
 # My alias
 alias tmux=tmux -u
+alias nnn=nnn -Rd
 alias vim=nvim
-alias cd2=cd ../..
-alias cd3=cd ../../..
-alias cd4=cd ../../../..
-# export GOPATH=/usr/local/go
-export PATH=$PATH:/usr/local/go/bin
-#export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/go/bin
-# alias for Ultralist
-alias u=ultralist
-alias ul=ultralist list
+alias cd2="cd ../.."
+alias cd3="cd ../../.."
+alias cd4="cd ../../../.."
 
 # Clipboards
 alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
