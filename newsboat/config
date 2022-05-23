@@ -47,4 +47,3 @@ color listfocus_unread blue default reverse bold
 
 # Write error log
 error-log           "~/.newsboat/error.log"
-
