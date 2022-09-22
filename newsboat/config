@@ -9,8 +9,8 @@ goto-first-unread   yes
 goto-next-feed      yes
 show-read-feeds     no
 text-width          80
-max-items			      50
-cleanup-on-quit		yes
+max-items                             50
+cleanup-on-quit         yes
 
 # Keep an archive
 history-limit       15
