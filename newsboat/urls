@@ -7,7 +7,6 @@ https://medium.com/feed/python4you
 https://feeds.feedburner.com/TechCrunch/
 https://www.reddit.com/r/golang/.rss?format=xml
 https://forum.golangbridge.org/latest.rss
-https://codefresh.io/kubernetes-tutorial/feed/ "K8s"
 https://blog.pythonanywhere.com/index.xml "Python"
 https://www.thecrazyprogrammer.com/feed
 https://medium.com/feed/better-programming
@@ -15,13 +14,17 @@ https://www.wired.com/feed/rss
 https://www.howtogeek.com/feed/
 http://treyhunner.com/atom.xml programming
 https://appliedgo.net/index.xml
-https://kubernetes.io/feed.xml "K8s"
 http://feeds.feedburner.com/venturebeat/SZYF
 http://feeds.feedblitz.com/freetech4teachers
 https://www.cnet.com/rss/news/
 http://www.techradar.com/rss
 http://blog.finxter.com/feed
 https://golangbyexample.com/feed/ "Programming"
-http://www.everydaylinuxuser.com/feeds/posts/default
 http://www.reddit.com/r/neovim/.rss "~Reddit neovim Linux-Subreddit"
 http://feedproxy.google.com/TheGeekStuff "~🐧 Linux TheGeekStuff"
+https://rachitiitr.blogspot.com/feeds/posts/default?alt=rss
+https://realpython.com/atom.xml?format=xml "Python"
+https://kubernetes.io/feed.xml "K8s"
+http://feeds.feedburner.com/ThePragmaticEngineer
+https://www.joelonsoftware.com/feed/
+https://iximiuz.com/feed.atom
