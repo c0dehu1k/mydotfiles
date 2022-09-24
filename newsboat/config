@@ -17,7 +17,7 @@ history-limit       15
 keep-articles-days  15
 
 # Open links in this browser
-browser "w3m %u"
+browser "qutebrowser %u"
 # browser "w3m"
 
 # bind keys - vim style
