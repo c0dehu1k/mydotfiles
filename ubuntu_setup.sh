@@ -7,6 +7,14 @@ sudo apt install zsh tmux ripgrep -y
 #Browser
 sudo apt install qutebrowser -y
 
+# Brave Browser
+cd /tmp
+sudo apt install apt-transport-https curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
+
 # Media Player
 sudo apt install -y libncursesw5-dev libpulse-dev libasound2-dev libroar-dev libao-dev libjack-dev libsamplerate0-dev libcdio-dev libcdio-cdda-dev 
 sudo apt install -y libcddb2-dev libcue-dev libflac-dev libvorbis-dev libmpcdec-dev libwavpack-dev libmad0-dev libavformat-dev libavcodec-dev
@@ -31,10 +39,22 @@ sudo apt install mupdf
 
 
 # Go installation 
+curl https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
 
 # Docker 
 
 # Kubernetes
+
+# Kind 
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.15.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+# Kubectl Command line
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
 
 # Final update and clean ups
 sudo apt update
