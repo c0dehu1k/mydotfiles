@@ -1,6 +1,8 @@
 http://sc-bb.1.fm:8017/
+http://stream.live.vc.bbcmedia.co.uk/bbc_hindi_radio
 http://103.16.47.70:7777/;stream.mp3
 http://109.169.46.197:8011/;stream/1
+http://stream-49.zeno.fm/2xx62x8ztm0uv?zs=DKkAFM1XT3qvG1Yr_gXM2g
 http://103.16.47.70:7222/;
 http://77.235.42.90:80/;stream/1
 http://peridot.streamguys.com:7150/Mirchi
