@@ -2,7 +2,7 @@
 sudo apt install build-essential -y
 
 # Terminal Utilities
-sudo apt install zsh tmux ripgrep -y 
+sudo apt install zsh tmux ripgrep htop -y 
 
 #Browser
 sudo apt install qutebrowser -y
@@ -25,17 +25,17 @@ sudo apt install cmus mpv vlc -y
 sudo apt-get install i3-wm dunst i3lock i3status suckless-tools -y
 sudo apt install brightnessctl -y
 sudo apt-get install compton hsetroot rxvt-unicode xsel rofi fonts-noto fonts-mplus xsettingsd lxappearance scrot viewnior
-sudo apt install nitrogen nnn xclip
+sudo apt install nitrogen nnn xclip -y
 
 # Python
 sudo apt install python3-pip
 sudo pip3 install black flake8 ipython bpython
 
 # nvim 
-sudo apt install neovim
+sudo apt install neovim -y
 
 # Other utils
-sudo apt install mupdf
+sudo apt install mupdf -y
 
 
 # Go installation 

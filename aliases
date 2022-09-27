@@ -1,22 +1,22 @@
 # My alias
 alias tmux='tmux -u'
 alias vim=nvim
-alias nnn=nnn -Rd
+alias nnn='nnn -Rd'
 alias cd2='cd ../../'
 alias cd3='cd ../../../'
 alias cd4='cd ../../../../'
 alias cd5='cd ../../../../../'
 
-
 # Clipboards
 alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
 alias vs="xclip -o -selection clipboard" # paste from system wide clipboard (equivalent to `v -selection clipboard`)
+
 # For Ubuntu 
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 #Youtube alias
-alias youtube-dl-best="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias youtube-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
 # w3m Command line Browser
 alias w3m="w3m -s"

@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting kubectl)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting kubectl history emoji encode64)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,21 +110,3 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.pass-zsh-completion ] && source ~/.pass-zsh-completion
-
-# My alias
-alias tmux=tmux -u
-alias nnn=nnn -Rd
-alias vim=nvim
-alias cd2="cd ../.."
-alias cd3="cd ../../.."
-alias cd4="cd ../../../.."
-
-# Clipboards
-alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
-alias vs="xclip -o -selection clipboard" # paste from system wide clipboard (equivalent to `v -selection clipboard`)
-
-#Youtube alias
-alias youtube-dl-best="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
-
-# w3m Command line Browser
-alias w3m="w3m -s"
