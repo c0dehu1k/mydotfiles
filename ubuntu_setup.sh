@@ -1,8 +1,10 @@
 # BUild Dependencies
 sudo apt install build-essential -y
+sudo apt install cargo lua5.4 luarocks -y
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
+sudo apt install rtorrent alacritty -y
 
 #Browser
 sudo apt install qutebrowser -y
@@ -55,6 +57,9 @@ sudo mv ./kind /usr/local/bin/kind
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
+
+# Terminal Games
+sudo apt install nudoku -y  # command line Sudoku
 
 # Final update and clean ups
 sudo apt update
