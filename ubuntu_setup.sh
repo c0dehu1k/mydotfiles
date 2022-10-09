@@ -36,6 +36,9 @@ sudo pip3 install black flake8 ipython bpython
 # nvim 
 sudo apt install neovim -y
 
+#neomutt
+sudo apt install neomutt msmtp mpop isync abook -y
+
 # Other utils
 sudo apt install mupdf -y
 
