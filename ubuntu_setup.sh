@@ -1,6 +1,6 @@
 # BUild Dependencies
 sudo apt install build-essential -y
-sudo apt install cargo lua5.4 luarocks -y
+sudo apt install ansible cargo lua5.4 luarocks -y
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
@@ -37,10 +37,10 @@ sudo pip3 install black flake8 ipython bpython
 sudo apt install neovim -y
 
 #neomutt
-sudo apt install neomutt msmtp mpop isync abook -y
+sudo apt install neomutt msmtp mpop isync abook lynx libidn11-dev -y
 
 # Other utils
-sudo apt install mupdf -y
+sudo apt install mupdf  gtypist -y
 
 
 # Go installation 
@@ -63,9 +63,12 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 # Terminal Games
 sudo apt install nudoku -y  # command line Sudoku
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 # Final update and clean ups
 sudo apt update
 sudo apt upgrade -y
 sudo apt autoclean
 sudo apt autoremove
+
+chmod -R u=rw,u+X,go= ~/.gnupg/
