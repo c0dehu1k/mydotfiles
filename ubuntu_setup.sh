@@ -1,6 +1,12 @@
 # BUild Dependencies
 sudo apt install build-essential -y
 sudo apt install ansible cargo lua5.4 luarocks -y
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+sudo apt -y install libgpgme-dev
+sudo apt -y install libsasl2-dev
+sudo apt -y install gettext
+sudo apt install libidn12-dev -y
+sudo apt -y install libssl-dev
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
@@ -41,6 +47,7 @@ sudo apt install neomutt msmtp mpop isync abook lynx libidn11-dev -y
 
 # Other utils
 sudo apt install mupdf  gtypist -y
+sudo apt install meld  # Diff tool
 
 
 # Go installation 

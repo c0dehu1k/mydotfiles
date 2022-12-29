@@ -1,36 +1,40 @@
+https://www.thecrazyprogrammer.com/feed
+https://medium.com/feed/better-programming
+https://blog.pythonanywhere.com/index.xml "Python"
+https://forum.golangbridge.org/latest.rss
+https://golangbyexample.com/feed/ "Programming"
+https://www.chrisatmachine.com/rss.xml "linux"
+https://www.docker.com/blog/feed/
+https://sreeninet.wordpress.com/category/docker/feed/
+https://iximiuz.com/feed.atom
+https://kubernetes.io/feed.xml "K8s"
+http://googletesting.blogspot.com/atom.xml
 http://feeds.feedburner.com/TheGeekStuff
 http://news.mit.edu/rss/topic/computers
 http://feeds.feedburner.com/noobslab
-https://sreeninet.wordpress.com/category/docker/feed/
-https://www.docker.com/blog/feed/
 https://medium.com/feed/python4you
 https://feeds.feedburner.com/TechCrunch/
-https://www.reddit.com/r/golang/.rss?format=xml
-https://forum.golangbridge.org/latest.rss
-https://blog.pythonanywhere.com/index.xml "Python"
-https://www.thecrazyprogrammer.com/feed
-https://medium.com/feed/better-programming
 https://www.wired.com/feed/rss
 https://www.howtogeek.com/feed/
 http://treyhunner.com/atom.xml programming
 https://appliedgo.net/index.xml
 http://feeds.feedburner.com/venturebeat/SZYF
-http://feeds.feedblitz.com/freetech4teachers
 https://www.cnet.com/rss/news/
 http://www.techradar.com/rss
 http://blog.finxter.com/feed
-https://golangbyexample.com/feed/ "Programming"
-http://www.reddit.com/r/neovim/.rss "~Reddit neovim Linux-Subreddit"
 http://feedproxy.google.com/TheGeekStuff "~🐧 Linux TheGeekStuff"
 https://rachitiitr.blogspot.com/feeds/posts/default?alt=rss
 https://realpython.com/atom.xml?format=xml "Python"
-https://kubernetes.io/feed.xml "K8s"
 http://feeds.feedburner.com/ThePragmaticEngineer
 https://www.joelonsoftware.com/feed/
-https://iximiuz.com/feed.atom
+
+# Reddit
+https://www.reddit.com/r/golang/.rss?format=xml
+http://www.reddit.com/r/neovim/.rss "~Reddit neovim Linux-Subreddit"
 https://www.reddit.com/r/linux/new.rss reddit content
 https://www.reddit.com/r/commandline/new.rss reddit content
 https://www.reddit.com/r/vim/new.rss reddit content
 https://www.reddit.com/r/unixporn/new.rss reddit
-https://news.ycombinator.com/rss news
-http://googletesting.blogspot.com/atom.xml
+
+# YouTube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA "Linux" "YouTube"  #chris at machine
