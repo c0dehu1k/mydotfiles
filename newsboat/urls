@@ -1,40 +1,53 @@
-https://www.thecrazyprogrammer.com/feed
-https://medium.com/feed/better-programming
-https://blog.pythonanywhere.com/index.xml "Python"
-https://forum.golangbridge.org/latest.rss
-https://golangbyexample.com/feed/ "Programming"
-https://www.chrisatmachine.com/rss.xml "linux"
-https://www.docker.com/blog/feed/
-https://sreeninet.wordpress.com/category/docker/feed/
-https://iximiuz.com/feed.atom
-https://kubernetes.io/feed.xml "K8s"
-http://googletesting.blogspot.com/atom.xml
-http://feeds.feedburner.com/TheGeekStuff
-http://news.mit.edu/rss/topic/computers
-http://feeds.feedburner.com/noobslab
-https://medium.com/feed/python4you
-https://feeds.feedburner.com/TechCrunch/
-https://www.wired.com/feed/rss
-https://www.howtogeek.com/feed/
-http://treyhunner.com/atom.xml programming
-https://appliedgo.net/index.xml
-http://feeds.feedburner.com/venturebeat/SZYF
-https://www.cnet.com/rss/news/
-http://www.techradar.com/rss
-http://blog.finxter.com/feed
-http://feedproxy.google.com/TheGeekStuff "~🐧 Linux TheGeekStuff"
-https://rachitiitr.blogspot.com/feeds/posts/default?alt=rss
-https://realpython.com/atom.xml?format=xml "Python"
-http://feeds.feedburner.com/ThePragmaticEngineer
-https://www.joelonsoftware.com/feed/
+# Programming
+https://www.thecrazyprogrammer.com/feed "programming"
+https://medium.com/feed/better-programming "programming"
+http://treyhunner.com/atom.xml "programming"
 
-# Reddit
-https://www.reddit.com/r/golang/.rss?format=xml
-http://www.reddit.com/r/neovim/.rss "~Reddit neovim Linux-Subreddit"
-https://www.reddit.com/r/linux/new.rss reddit content
+# Golang
+https://forum.golangbridge.org/latest.rss "go"
+https://appliedgo.net/index.xml "go"
+https://www.reddit.com/r/golang/.rss?format=xml reddit content
+https://golangbyexample.com/feed/ "programming"
+
+# Docker
+https://www.docker.com/blog/feed/ "docker"
+https://sreeninet.wordpress.com/category/docker/feed/ "docker"
+https://iximiuz.com/feed.atom "docker"
+https://www.reddit.com/r/docker/new.rss reddit content
+
+
+# Kubernetes
+https://kubernetes.io/feed.xml "k8s"
+https://www.reddit.com/r/kubernetes/new.rss reddit content
+
+# Testing
+http://googletesting.blogspot.com/atom.xml "testing"
+
+# Python
+https://blog.pythonanywhere.com/index.xml "python"
+https://medium.com/feed/python4you "python"
+https://realpython.com/atom.xml?format=xml "python"
+
+# Tech Articles
+https://feeds.feedburner.com/TechCrunch/ "techarticles"
+http://news.mit.edu/rss/topic/computers "techarticles"
+http://feeds.feedburner.com/noobslab "techarticles"
+https://www.wired.com/feed/rss "techarticles"
+https://www.howtogeek.com/feed/ "techarticles"
+http://feeds.feedburner.com/venturebeat/SZYF "techarticles"
+https://www.cnet.com/rss/news/ "techarticles"
+http://www.techradar.com/rss "techarticles"
+http://blog.finxter.com/feed "techarticles"
+
+# Linux
+https://www.reddit.com/r/unixporn/new.rss reddit content
 https://www.reddit.com/r/commandline/new.rss reddit content
+https://www.reddit.com/r/linux/new.rss reddit content
+
+# Misc - Utils
 https://www.reddit.com/r/vim/new.rss reddit content
-https://www.reddit.com/r/unixporn/new.rss reddit
+https://www.reddit.com/r/neovim/new.rss reddit content
 
 # YouTube
-https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA "Linux" "YouTube"  #chris at machine
+https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA "Linux" "YouTube" #chrisatmachine
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6VkhPuCCwR_kG0GExjoozg "Linux" "YouTube" #justmeandpensource

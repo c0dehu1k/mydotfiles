@@ -8,6 +8,7 @@ feed-sort-order     unreadarticlecount-asc
 goto-first-unread   yes
 goto-next-feed      yes
 show-read-feeds     no
+show-read-articles  no
 text-width          120
 max-items           100
 cleanup-on-quit     yes
