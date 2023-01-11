@@ -16,13 +16,23 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 #Youtube alias
-alias youtube-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+# We need to install yt-dlp binary to our machine
+# Link: https://write.corbpie.com/downloading-youtube-videos-and-playlists-with-yt-dlp/ 
+# Single Video
+alias yt-dl-b="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
-# w3m Command line Browser
-alias w3m="w3m -s"
+# Complete Channel Download
+alias yt-dl-ch="yt-dlp -f 'bv*[height=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(title)s.%(ext)s'"
+
+# Playlist Download
+alias yt-dl-pl="yt-dlp -f 'bv*[height=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(playlist)s/%(title)s.%(ext)s'"
+
+export PATH=$PATH:/usr/local/go/bin:/home/om/.cargo/bin:/home/om/go/bin
+export EDITOR="/usr/local/bin/nvim"
 
 # General TaskWarrior commands
 alias t='task'
+alias to='task overdue'
 alias tn='task next +READY'
 alias tnu="task next urgency \> ${urgencyPrio}"
 alias ta='task add'
