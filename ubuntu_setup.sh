@@ -7,6 +7,10 @@ sudo apt -y install libsasl2-dev
 sudo apt -y install gettext
 sudo apt install libidn12-dev -y
 sudo apt -y install libssl-dev
+# newsboat dependencies
+sudo apt install libncursesw5-dev ncurses-term debhelper libxml2-dev libstfl-dev 
+sudo apt install libsqlite3-dev perl pkg-config libcurl4-gnutls-dev libjson-c-dev asciidoc 
+sudo apt install libxml2-utils xsltproc docbook-xml docbook-xsl bc cargo gettext  asciidoctor
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
@@ -43,7 +47,7 @@ sudo pip3 install black flake8 ipython bpython
 sudo apt install neovim -y
 
 #neomutt
-sudo apt install neomutt msmtp mpop isync abook lynx libidn11-dev -y
+sudo apt install neomutt msmtp mpop isync abook lynx w3m libidn11-dev -y
 
 # Other utils
 sudo apt install mupdf  gtypist -y

@@ -16,9 +16,10 @@ cleanup-on-quit     yes
 # Keep an archive
 history-limit       30
 keep-articles-days  30
+save-path "~/.newsboat/saved/"
 
 # Open links in this browser
-browser "qutebrowser %u"
+browser "qutebrowser --target private-window %u"
 # browser "w3m"
 
 # bind keys - vim style

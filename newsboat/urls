@@ -27,6 +27,8 @@ http://googletesting.blogspot.com/atom.xml "testing"
 https://blog.pythonanywhere.com/index.xml "python"
 https://medium.com/feed/python4you "python"
 https://realpython.com/atom.xml?format=xml "python"
+https://www.askpython.com/feed "python"
+http://blog.finxter.com/feed "python"
 
 # Tech Articles
 https://feeds.feedburner.com/TechCrunch/ "techarticles"
@@ -36,20 +38,24 @@ https://www.wired.com/feed/rss "techarticles"
 https://www.howtogeek.com/feed/ "techarticles"
 http://feeds.feedburner.com/venturebeat/SZYF "techarticles"
 https://www.cnet.com/rss/news/ "techarticles"
-http://www.techradar.com/rss "techarticles"
-http://blog.finxter.com/feed "techarticles"
+# http://www.techradar.com/rss "techarticles" - not working
 
 # Linux
 https://www.reddit.com/r/unixporn/new.rss reddit content
 https://www.reddit.com/r/commandline/new.rss reddit content
 https://www.reddit.com/r/linux/new.rss reddit content
+https://www.reddit.com/r/sysadmin/new.rss reddit content
+https://www.commandlinefu.com/feed/threeup
+http://feeds2.feedburner.com/Command-line-fu
 
 # Misc - Utils
 https://www.reddit.com/r/neovim/new.rss reddit content
 https://www.reddit.com/r/i3wm/new.rss reddit content
 https://www.reddit.com/r/weechat/new.rss reddit content
 https://www.reddit.com/r/tmux/new.rss reddit content
-https://www.reddit.com/r/sysadmin/new.rss reddit content
+https://www.reddit.com/r/neomutt/new.rss reddit content
+https://www.reddit.com/r/qutebrowser/new.rss reddit content
+https://www.reddit.com/r/KittyTerminal/new.rss reddit content
 
 # YouTube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA "Linux" "YouTube" #chrisatmachine
