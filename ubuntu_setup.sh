@@ -14,7 +14,7 @@ sudo apt install libxml2-utils xsltproc docbook-xml docbook-xsl bc cargo gettext
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
-sudo apt install rtorrent alacritty -y
+sudo apt install rtorrent kitty -y
 
 #Browser
 sudo apt install qutebrowser -y
