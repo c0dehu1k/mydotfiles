@@ -23,7 +23,6 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 # Setting dark mode
 config.set("colors.webpage.darkmode.enabled", True)
 
-
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
@@ -353,23 +352,23 @@ c.fonts.default_family = '"Source Code Pro"'
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '9pt'
+c.fonts.default_size = '10pt'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '9pt "Source Code Pro"'
+c.fonts.completion.entry = '10pt "Source Code Pro"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '9pt "Source Code Pro"'
+c.fonts.debug_console = '10pt "Source Code Pro"'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = 'default_size sans-serif'
+c.fonts.prompts = '10pt "Source Code Pro"'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '8pt "Source Code Pro"'
+c.fonts.statusbar = '10pt "Source Code Pro"'
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
 #config.bind('o', 'spawn --userscript dmenu-open')
