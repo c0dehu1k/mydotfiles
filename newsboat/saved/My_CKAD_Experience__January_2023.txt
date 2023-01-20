@@ -1,0 +1,55 @@
+Feed: newest submissions : kubernetes
+Title: My CKAD Experience - January 2023
+Author: /u/linuxman455
+Date: Tue, 17 Jan 2023 05:10:19 +0530
+Link: https://www.reddit.com/r/kubernetes/comments/10dwejs/my_ckad_experience_january_2023/
+ 
+Prep Work/Resources
+ 
+ 1. 
+    0 K8's experience when I started November 2022. Many years of professional SRE/infra experience with docker, linux, 
+    cloud, etc.
+ 2. 
+    Went thru Udemy CKAD course by Mumshad Mannambeth. Completed all hands on "Kodekloud" exercises twice. Once while 
+    going thru the course and once again the week prior to the exam.
+ 3. 
+    Completed both killer.sh practice exams. One two weekends before the exam. Second one one weekend before the exam. 
+    First practice exam I scored a 63% total but scored 93% of what I attempted. Second practice exam I scored a 78% 
+    total but scored 93% of what I attempted.
+ 4. 
+    Went thru all these exercises twice with my personal ubuntu desktop server: 
+    https://github.com/dgkanatsios/CKAD-exercises[1]
+ 
+Exam Environment Heads Up
+ 
+ 1. 
+    I had major issues with my webcam focusing on my ID during ID verification process. We tried everything and the exam
+    almost had to be canceled. I had to run to a neighbors and borrow a different webcam. BE SURE your webcam can get a 
+    clear video/picture of your ID. There were no alternative methods for identification. I have already purchased a 
+    nicer webcam so I don't face this problem in future!
+ 2. 
+    As a MAC user I had to get used to SHIFT + CTRL + C for copy and SHIFT + CTRL + V for paste.
+ 3. 
+    Most questions you will do significantly less work than required in the killer.sh exams.
+ 4. 
+    Be sure to read the instructions very carefully. Many times I felt the pull to start modifying some resources but 
+    the instructions will often tell you what you SHOULD and SHOULD NOT modify.
+ 5. 
+    I connected 25 minutes before my exam. It took the proctor 5 minutes to connect and then 10 minutes to actually 
+    start chatting. Because of the ID and focusing issues it took about 54 minutes to finally get into the exam. I ended
+    up getting to the exam one minute before it is considered "too late". This caused a lot of unnecessary stress and 
+    discomfort to start off the exam.
+ 6. 
+    I did not need my phone at all during check in process. I also did not need my speakers at all and was asked to turn
+    them off.
+ 7. 
+    I did not find the latency/VM bad at all, but I use a very reliable high bandwidth wired connection.
+ 
+submitted by /u/linuxman455 [2] 
+[link][3] [comments][3]
+ 
+Links: 
+[1]: https://github.com/dgkanatsios/CKAD-exercises (link)
+[2]: https://www.reddit.com/user/linuxman455 (link)
+[3]: https://www.reddit.com/r/kubernetes/comments/10dwejs/my_ckad_experience_january_2023/ (link)
+

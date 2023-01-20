@@ -1,0 +1,120 @@
+Feed: Better Programming - Medium
+Title: Making Strings Smart in Python
+Author: Brian Redmond
+Date: Tue, 10 Jan 2023 00:01:20 +0530
+Link: https://betterprogramming.pub/making-strings-smart-in-python-59326a5fbb8a?source=rss----d0b105d10f0a---4
+ 
+Applying domain-driven design
+[image 1 (link #1)]Photo by xandtor[2] on Unsplash[3]
+ 
+Good architectural ideas aren’t just for large and complicated projects. Whether you’ve heard of Domain-driven Design or
+not, I’m going to show you how to improve your project, big or small, by applying the basic principles to the strings 
+you’ve been passing around. Time to collect those stray bits of validation and parsing code you have strewn all over the
+place and get them into a nice, reusable unit.
+ 
+We’re going to just scratch the surface of Domain-driven Design here. You’ll want to get a copy of Eric Evans’ book of 
+the same name by the end of this article. The core concept is that your object model is best developed using the 
+language of the business domain. The business rules are encoded into the model. This is kept separate from application 
+and infrastructure code. We’re going to stick to a simple example of how you can apply this idea to strings in your 
+code.
+ 
+I’ve found strings to be a simple target to start with and if that’s all you do, you’ll enjoy the benefits. Today, we 
+have a method to get the terminal location of a flight given its flight number, such as LA8165. We can treat the flight 
+number as a string:
+def getTerminal(flight_number): 
+  return db.getTerminal(flight_number)
+ 
+But what if someone passes it in lowercase or passes an empty string? We can add some code to handle that:
+def getTerminal(flight_number): 
+  # Normalize input to a clean string
+  flight_number = str(flight_number).upper().strip()
+  if not flight_number:
+    raise ValueError(“Flight Number can not be empty.”)
+ 
+  return db.getTerminal(flight_number)
+ 
+And now a simple method is much more complicated. The truth is, these types of rules and checks apply anywhere we use a 
+flight number in our code. A flight number is a business concept in our domain with specific rules. Why scatter them 
+around? Instead, create a class:
+class FlightNumber(object):
+  def __init__(self, flight_number):
+    # Normalize input to a clean string
+    flight_number = str(flight_number).upper().strip()
+    if not flight_number:
+      raise ValueError(“Flight Number can not be empty.”)
+    self.flight_number = flight_number
+ 
+  # The value when this is cast to a string or used in a formatted string
+  def __str__(self):
+    return self.flight_number
+ 
+And our original code becomes:
+def getTerminal(flight_number): 
+  flight_number = FlightNumber(flight_number)
+  return db.getTerminal(str(flight_number))
+ 
+I don’t normally like clever, but we do have a clever trick with this specific approach. If we init our FlightNumber 
+class with a value that is already an instance of FlightNumber, it will be just fine because we start by casting to a 
+string and that triggers the __str__ method automatically. Don’t get worried if that doesn’t make sense right now. 
+You’ll wake up in the middle of the night and it will be there.
+ 
+We’ll now explore all the subtle benefits of this way of thinking:
+ 
+ 1. Our new class is incredibly easy to unit test because it doesn’t touch file systems or networks or anything we need 
+ to mock.
+ 2. We have a single place to add documentation.
+ 3. We can pack this full of all the rules and parsing we want to make it complete.
+ 4. Anyone new to the project will easily learn what a flight number is, very specifically.
+ 5. All of these objects can go in a domain folder to make them reusable and discoverable.
+ 6. The calling code is easier to read and pull requests are simpler.
+ 7. Errors will be caught sooner in the stack
+ 
+Our final class looks like this:
+class FlightNumber(object):
+  """
+  Represents an International Air Transport Association flight number. Ex — LA8165
+  The format is two uppercase letters for the airline followed by up to four digits. 
+  """
+  def __init__(self, flight_number):
+  # Normalize input to a clean string
+  flight_number = str(flight_number).upper().strip()
+  if not flight_number:
+    raise ValueError("Flight Number can not be empty.")
+  self.airline_code = flight_number[0:2].strip()
+  if not self.airline_code.isalpha():
+    raise ValueError(f"Airline Code {self.airline_code} must be two letters.")
+  # Throws ValueError already if not a valid int
+  self.numeric_part = int(flight_number[2:])
+  if self.numeric_part < 1 or self.numeric_part > 9999:
+    raise ValueError(f”Flight Number {self.numeric_part} must be from 1 to 9999.”)
+  if self.numeric_part == 666:
+    raise ValueError(f"Seriously, airlines don’t use this flight number.")
+ 
+  def __str__(self):
+    return f"{self.airline_code}{self.numeric_part}"
+ 
+Wherever you pass data that has rules associated with it, you are likely looking at a domain object. By packaging these 
+rules into a domain object instead of relying on bare strings, you’ll have cleaner code and spend less time in code 
+review. I encourage you to dive deeper into Domain-driven concepts, but you’re off to a good start just by looking at 
+the strings in your code.
+ 
+References
+ 
+  * Domain-driven Design[4]
+ 
+[image 2 (link #5)]
+
+ ---------------------------------------------------------------------------------------------------------------------- 
+
+Making Strings Smart in Python[6] was originally published in Better Programming[7] on Medium, where people are 
+continuing the conversation by highlighting and responding to this story.
+ 
+Links: 
+[1]: https://cdn-images-1.medium.com/max/1024/0*51CJAwLKnnbHuMuj (image)
+[2]: https://unsplash.com/@xandtor?utm_source=medium&utm_medium=referral (link)
+[3]: https://unsplash.com/?utm_source=medium&utm_medium=referral (link)
+[4]: https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215 (link)
+[5]: https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=59326a5fbb8a (image)
+[6]: https://betterprogramming.pub/making-strings-smart-in-python-59326a5fbb8a (link)
+[7]: https://betterprogramming.pub/ (link)
+

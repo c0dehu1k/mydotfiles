@@ -1,0 +1,15 @@
+Feed: newest submissions : kubernetes
+Title: Kubernetes App Deployment from the Command Line
+Author: /u/CrankyBear
+Date: Sun, 15 Jan 2023 23:30:09 +0530
+Link: https://www.reddit.com/r/kubernetes/comments/10cq7rl/kubernetes_app_deployment_from_the_command_line/
+ 
+[image 1: Kubernetes App Deployment from the Command Line (link #2)] [1]  submitted by    /u/CrankyBear [3] 
+                                                                          [link][4] [comments][1]           
+ 
+Links: 
+[1]: https://www.reddit.com/r/kubernetes/comments/10cq7rl/kubernetes_app_deployment_from_the_command_line/ (link)
+[2]: https://external-preview.redd.it/oNYyZqagvaHm5uFKnNUFqD7528to_AfLX11iiZkLCAc.jpg?width=320&crop=smart&auto=webp&s=784c9dd51bd5808ccde10d9f591004bd675e80a9 (image)
+[3]: https://www.reddit.com/user/CrankyBear (link)
+[4]: https://thenewstack.io/kubernetes-app-deployment-from-the-command-line/ (link)
+

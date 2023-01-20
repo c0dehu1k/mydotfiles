@@ -36,3 +36,13 @@ sec.conf
 *.log
 *.sql
 *.sqlite
+
+
+# Setup related files
+cmus/autosave
+cmus/cache
+cmus/command-history
+cmus/search-history
+newsboat/cache.db
+newsboat/history.cmdline
+newsboat/history.search
