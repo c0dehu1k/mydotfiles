@@ -14,7 +14,7 @@ sudo apt install libxml2-utils xsltproc docbook-xml docbook-xsl bc cargo gettext
 
 # Terminal Utilities
 sudo apt install zsh tmux ripgrep htop -y 
-sudo apt install rtorrent kitty -y
+sudo apt install rtorrent kitty urlview -y
 
 #Browser
 sudo apt install qutebrowser -y
@@ -75,6 +75,12 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 # Terminal Games
 sudo apt install nudoku -y  # command line Sudoku
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+
+
+# Usefull and Better command's
+sudo apt install bat -y  # replaces cat 
+sudo apt install duf -y # Better than df 
+sudo apt install jq -y  # Display jsons better
 
 # Final update and clean ups
 sudo apt update

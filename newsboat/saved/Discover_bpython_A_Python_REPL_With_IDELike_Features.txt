@@ -1,0 +1,155 @@
+Feed: Real Python
+Title: Discover bpython: A Python REPL With IDE-Like Features
+Author: Real Python
+Date: Wed, 04 Jan 2023 19:30:00 +0530
+Link: https://realpython.com/bpython-alternative-python-repl/
+ 
+The standard Python interpreter lets you run scripts[1] from files or interactively execute code[2] on the fly in a 
+so-called read-evaluate-print loop (REPL). While this is a powerful tool for exploring the language and discovering its 
+libraries through instant feedback on your code inputs, the default REPL shipped with Python has several limitations. 
+Luckily, alternatives like bpython offer a much more programmer-friendly and convenient experience.
+ 
+You can use bpython to experiment with your code or quickly test an idea without switching contexts between different 
+programs, just like in an integrated development environment (IDE). In addition, bpython may be a valuable teaching tool
+in either a virtual or physical classroom.
+ 
+In this tutorial, you’ll learn how to:
+ 
+  * Install and use bpython as your alternative Python REPL
+  * Boost your productivity thanks to bpython’s unique features
+  * Tweak bpython’s configuration and its color theme
+  * Use common keyboard shortcuts to code more quickly
+  * Contribute to bpython’s open-source project on GitHub
+ 
+Before starting this tutorial, make sure you’re already familiar with Python basics[3] and know how to start the 
+standard Python REPL in the command line. In addition, you should be able to install packages with pip[4], ideally into 
+a virtual environment[5].
+ 
+To download the configuration files and sample scripts that you’ll use in this tutorial, click the link below:
+ 
+Source Code: Click here to download the free source code[6] that you’ll use to harness the power of bpython.
+ 
+Get Started With bpython[7]
+ 
+Unlike stand-alone Python distributions, such as CPython[8], PyPy[9], or Anaconda[10], bpython[11] is merely a 
+pure-Python package serving as a lightweight wrapper around a chosen Python interpreter. Therefore, you can use bpython 
+on top of any particular Python distribution, version, or even a virtual environment, which gives you plenty of 
+flexibility.
+ 
+Note: The letter b in bpython stands for Bob Farrell[12], who’s the original author and maintainer of the tool.
+ 
+At the same time, bpython remains a familiar Python REPL with only a few essential features, such as syntax highlighting
+and auto-completion, borrowed from the full-fledged Python IDEs[13]. This minimalistic approach contrasts with tools 
+like IPython[14], which is yet another alternative to the standard Python REPL, popular in the data science community. 
+IPython introduces a lot of custom commands and other extras that are unavailable in vanilla[15] Python.
+ 
+There are a few ways to get bpython on your computer. Package managers like Homebrew[16] or APT[17] offer pre-built 
+versions of bpython for your operating system. However, they’re likely obsolete and hardwired to the system-wide Python 
+interpreter. While you can build the latest bpython version from its source code by hand, it’s better to install it into
+a virtual environment[5] with pip[4]:
+ 
+(venv) $ python -m pip install bpython
+ 
+It’s common to have bpython installed in several copies across many virtual environments, and that’s fine. This allows 
+you to wrap bpython around the specific Python interpreter that you used to create the virtual environment in the first 
+place.
+ 
+Note: Unfortunately, bpython isn’t natively supported on Windows because it depends on the curses library[18], which is 
+only available on Unix-like systems, such as macOS and Linux. The official documentation mentions a work-around[19], 
+which relies on an unofficial binary for Windows, but it seems not to work anymore. If you’re on Windows, then your best
+bet is to install the Windows Subsystem for Linux (WSL)[20] and use bpython from there.
+ 
+Once it’s installed, you can start bpython using either of these two commands:
+ 
+ 1. bpython
+ 2. python -m bpython
+ 
+It’s preferable to choose the more explicit second command, which invokes bpython as a runnable Python module. This way,
+you’ll ensure that you’re running the bpython program installed into the currently active virtual environment. 
+ 
+On the other hand, using the bare bpython command could silently fall back to the program installed globally, if there 
+is one. It could also be aliased to a different executable in your shell, taking precedence over the local bpython 
+module.
+ 
+Here’s an example illustrating the use of bpython against a few different Python interpreters encapsulated within 
+isolated virtual environments:
+ 
+(py2.7) $ python -m bpython
+bpython version 0.20.1 on top of Python 2.7.18
+ ⮑ /home/realpython/py2.7/bin/python
+WARNING: You are using `bpython` on Python 2. Support for Python 2
+ ⮑ has been deprecated in version 0.19 and might disappear
+ ⮑ in a future version.
+>>> import platform
+>>> platform.python_version()
+'2.7.18'
+>>> platform.python_implementation()
+'CPython'
+ 
+(py3.11) $ python -m bpython
+bpython version 0.23 on top of Python 3.11.0
+ ⮑ /home/realpython/py3.11/bin/python
+>>> import platform
+>>> platform.python_version()
+'3.11.0'
+>>> platform.python_implementation()
+'CPython'
+ 
+(pypy) $ python -m bpython
+bpython version 0.23 on top of Python 3.9.12
+ ⮑ /home/realpython/pypy/bin/python
+>>> import platform
+>>>> platform.python_version()
+'3.9.12'
+>>> platform.python_implementation()
+'PyPy'
+ 
+Notice that you use the same command to run bpython from different virtual environments. Each highlighted line indicates
+the interpreter version and a path to the Python executable that bpython wraps in the current REPL session. You can 
+confirm the Python version and its implementation through the platform[21] module from the standard library.
+ 
+Note: The Django web framework[22] can detect bpython if it’s installed in your virtual environment. The framework will 
+automatically run bpython when you execute the shell command[23] to bring up the Python interactive interpreter with 
+your project files on the module search path.
+ 
+Okay, now that you’ve learned how to install and run bpython as an alternative Python REPL, it’s time to explore its key
+features. Over the next few sections, you’ll discover several ways that bpython can increase your productivity as a 
+Python programmer, regardless of your skill level.
+ 
+Spot Typos at a Glance[24]
+ 
+Read the full article at https://realpython.com/bpython-alternative-python-repl/ »[25]
+
+ ---------------------------------------------------------------------------------------------------------------------- 
+
+[ Improve Your Python With 🐍 Python Tricks 💌 – Get a short & sweet Python Trick delivered to your inbox every couple 
+of days. >> Click here to learn more and see examples[26] ]
+ 
+Links: 
+[1]: https://realpython.com/run-python-scripts/ (link)
+[2]: https://realpython.com/interacting-with-python/ (link)
+[3]: https://realpython.com/products/python-basics-book/ (link)
+[4]: https://realpython.com/what-is-pip/ (link)
+[5]: https://realpython.com/python-virtual-environments-a-primer/ (link)
+[6]: https://realpython.com/bonus/bpython-alternative-python-repl-code/ (link)
+[7]: https://realpython.com/bpython-alternative-python-repl/#get-started-with-bpython (link)
+[8]: https://realpython.com/cpython-source-code-guide/ (link)
+[9]: https://realpython.com/pypy-faster-python/ (link)
+[10]: https://www.anaconda.com/products/distribution (link)
+[11]: https://pypi.org/project/bpython/ (link)
+[12]: https://github.com/bobf (link)
+[13]: https://realpython.com/python-ides-code-editors-guide/ (link)
+[14]: https://ipython.org/ (link)
+[15]: https://en.wikipedia.org/wiki/Vanilla_software (link)
+[16]: https://brew.sh/ (link)
+[17]: https://en.wikipedia.org/wiki/APT_(software) (link)
+[18]: https://en.wikipedia.org/wiki/Curses_(programming_library) (link)
+[19]: https://docs.bpython-interpreter.org/en/latest/windows.html (link)
+[20]: https://learn.microsoft.com/en-us/windows/wsl/install (link)
+[21]: https://docs.python.org/3/library/platform.html (link)
+[22]: https://realpython.com/django-setup/ (link)
+[23]: https://docs.djangoproject.com/en/4.1/ref/django-admin/#shell (link)
+[24]: https://realpython.com/bpython-alternative-python-repl/#spot-typos-at-a-glance (link)
+[25]: https://realpython.com/bpython-alternative-python-repl/?utm_source=realpython&utm_medium=rss (link)
+[26]: https://realpython.com/python-tricks/?utm_source=realpython&utm_medium=rss&utm_campaign=footer (link)
+
