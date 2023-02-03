@@ -6,6 +6,7 @@ alias cd2='cd ../../'
 alias cd3='cd ../../../'
 alias cd4='cd ../../../../'
 alias cd5='cd ../../../../../'
+alias lg='lazygit'
 
 # Clipboards
 alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
