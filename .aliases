@@ -6,7 +6,14 @@ alias cd2='cd ../../'
 alias cd3='cd ../../../'
 alias cd4='cd ../../../../'
 alias cd5='cd ../../../../../'
-alias lg='lazygit'
+
+# First, Install gitui
+# https://github.com/extrawurst/gitui
+alias gu='gitui'
+
+# First, Install lazydocker
+# https://github.com/jesseduffield/lazydocker
+alias lzd='lazydocker'
 
 # Clipboards
 alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)

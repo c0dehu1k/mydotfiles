@@ -1,7 +1,6 @@
-theme = "onedark"
+theme = "ayu_dark"
 
 [editor]
-line-number = "relative"
 mouse = false
 
 [editor.cursor-shape]
@@ -17,9 +16,3 @@ hidden = false
 left = ["mode", "spinner"]
 center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
-separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
-
-
