@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+kitty @ launch --type=tab --tab-title "cmus"
+kitty @ send-text --match "recent:0" "cmus\n"
+
+kitty @ launch --type=tab --tab-title "mkpl"
+
+kitty @ launch --type=tab --tab-title "arcas"
+kitty @ launch --type=tab --tab-title "gemfire"
+kitty @ launch --type=tab --tab-title "sivttest"
+
+kitty @ launch --type=tab --tab-title "nvim"
+kitty @ send-text --match "recent:0" "nvim\n"
+
+kitty @ launch --type=tab --tab-title "gitui"
+kitty @ send-text --match "recent:0" "cd ~/github; gu\n"
+
+kitty @ launch --type=tab --tab-title "k8s"
+
+kitty @ launch --type=tab --tab-title "misc"

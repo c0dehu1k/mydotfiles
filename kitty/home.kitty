@@ -1,0 +1,26 @@
+#!/bin/bash
+
+kitty @ launch --type=tab --tab-title "newsboat"
+kitty @ send-text --match "recent:0" "newsboat\n"
+
+kitty @ launch --type=tab --tab-title "cmus"
+kitty @ send-text --match "recent:0" "cmus\n"
+
+kitty @ launch --type=tab --tab-title "neomutt"
+kitty @ send-text --match "recent:0" "neomutt\n"
+
+kitty @ launch --type=tab --tab-title "weechat"
+kitty @ send-text --match "recent:0" "weechat\n"
+
+kitty @ launch --type=tab --tab-title "nvim"
+kitty @ send-text --match "recent:0" "nvim\n"
+
+kitty @ launch --type=tab --tab-title "nnn"
+kitty @ send-text --match "recent:0" "nnn\n"
+
+kitty @ launch --type=tab --tab-title "gitui"
+kitty @ send-text --match "recent:0" "cd ~/github; gu\n"
+
+kitty @ launch --type=tab --tab-title "k8s"
+
+kitty @ launch --type=tab --tab-title "misc"
