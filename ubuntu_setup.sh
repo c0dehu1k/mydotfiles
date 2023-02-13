@@ -55,6 +55,9 @@ sudo apt install neomutt msmtp mpop isync abook lynx w3m libidn11-dev -y
 sudo apt install mupdf  gtypist -y
 sudo apt install meld -y  # Diff tool
 
+# Twitter clients
+sudo apt-get install libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
+sudo pip install rainbowstream
 
 # Go installation 
 curl https://go.dev/dl/go1.19.1.linux-amd64.tar.gz

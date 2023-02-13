@@ -15,6 +15,9 @@ alias gu='gitui'
 # https://github.com/jesseduffield/lazydocker
 alias lzd='lazydocker'
 
+# Install rainbows stream
+alias tw='rainbowstream'
+
 # Clipboards
 alias cs="xclip -selection clipboard" # copy to system wide clipboard (register +)
 alias vs="xclip -o -selection clipboard" # paste from system wide clipboard (equivalent to `v -selection clipboard`)
