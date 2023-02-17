@@ -1,6 +1,6 @@
 # Language support configuration.
 # See the languages documentation: https://docs.helix-editor.com/master/languages.html
-use-grammars = { only = [ "rust", "c", "cpp", "python", "html", "go","css", "java","yaml","json" ] }
+use-grammars = { only = [ "rust", "c", "cpp", "python", "html", "go","css", "java","yaml","json","markdown" ] }
 
 [[language]]
 name = "rust"

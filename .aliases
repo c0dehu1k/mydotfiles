@@ -41,7 +41,9 @@ alias yt-dl-pl="yt-dlp -f 'bv*[height=1080]+ba' --download-archive videos.txt -o
 export PATH=$PATH:/usr/local/go/bin:/home/om/.cargo/bin:/home/om/go/bin
 export EDITOR="/usr/local/bin/nvim"
 
-alias ls='ls --hyperlink=auto --color=auto'
+# Disabled for Mac
+# alias ls='ls --hyperlink=auto --color=auto'
+alias ls='ls --color=auto'
 
 # General TaskWarrior commands
 alias t='task'

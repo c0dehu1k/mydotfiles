@@ -1,5 +1,4 @@
-# theme = "rose_pine"
-theme = "ayu_dark"
+theme = "rose_pine"
 
 [editor]
 mouse = false
