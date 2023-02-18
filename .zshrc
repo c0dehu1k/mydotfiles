@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl history emoji encode64 sudo zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git kubectl history emoji encode64 sudo zsh-autosuggestions zsh-syntax-highlighting fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,7 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/vm-gitlab/mkp/bin/activate
+# source ~/vm-gitlab/mkp/bin/activate # For Office
+source ~/pyenv/bin/activate # For home laptop
 source ~/.aliases
 
 # Generated for envman. Do not edit.

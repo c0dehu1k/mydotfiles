@@ -19,8 +19,6 @@ kitty @ launch --type=tab --tab-title "nnn"
 kitty @ send-text --match "recent:0" "nnn\n"
 
 kitty @ launch --type=tab --tab-title "gitui"
-kitty @ send-text --match "recent:0" "cd ~/github; gu\n"
+kitty @ send-text --match "recent:0" "cd ~/github/mydotfiles ; gu\n"
 
 kitty @ launch --type=tab --tab-title "k8s"
-
-kitty @ launch --type=tab --tab-title "misc"
