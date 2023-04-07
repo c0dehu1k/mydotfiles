@@ -1091,7 +1091,6 @@ file-types = ["COMMIT_EDITMSG"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 rulers = [50, 72]
-max-line-length = 72
 
 [[grammar]]
 name = "git-commit"
