@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/vm-gitlab/mkp/bin/activate # For Office
+source ~/pyenv/bin/activate # For Office
 # source ~/pyenv/bin/activate # For home laptop
 source ~/.aliases
 
