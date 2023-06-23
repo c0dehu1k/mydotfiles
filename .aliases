@@ -33,10 +33,10 @@ alias pbpaste='xsel --clipboard --output'
 alias yt-dl-b="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
 # Complete Channel Download
-alias yt-dl-ch="yt-dlp -f 'bv*[height=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(title)s.%(ext)s'"
+alias yt-dl-ch="yt-dlp -f 'bv*[height<=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(title)s.%(ext)s'"
 
 # Playlist Download
-alias yt-dl-pl="yt-dlp -f 'bv*[height=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(playlist)s/%(title)s.%(ext)s'"
+alias yt-dl-pl="yt-dlp -f 'bv*[height<=1080]+ba' --download-archive videos.txt -o '%(channel)s/%(playlist)s/%(title)s.%(ext)s'"
 
 export PATH=$PATH:/usr/local/go/bin:/home/om/.cargo/bin:/home/om/go/bin
 export EDITOR="/usr/local/bin/nvim"
