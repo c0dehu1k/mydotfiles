@@ -38,7 +38,8 @@ sudo apt install cmus mpv vlc -y
 # i3 Window Manager
 sudo apt install i3-wm dunst i3lock i3status suckless-tools -y
 sudo apt install brightnessctl -y
-sudo apt install compton hsetroot rxvt-unicode xsel rofi fonts-noto fonts-mplus xsettingsd lxappearance scrot viewnior -y
+sudo apt install compton hsetroot rxvt-unicode xsel rofi fonts-noto fonts-mplus xsettingsd lxappearance -y
+sudo apt install flameshot -y
 sudo apt install nitrogen nnn xclip -y
 
 # Python
