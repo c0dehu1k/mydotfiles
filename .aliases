@@ -58,3 +58,6 @@ alias tdel='task delete'
 alias tan='task annotate'
 alias tl='task log'
 alias tac='task active'
+
+# Lets use podman 
+alias docker='podman'
