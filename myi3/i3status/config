@@ -19,7 +19,7 @@ order += "tztime local"
 
 
 load {
-        format = "<span background='#f54'>[Load: %1min, %5min, %15min]</span>"
+        format = "<span background='#bf6780'>[Load: %1min, %5min, %15min]</span>"
 }
 
 memory {

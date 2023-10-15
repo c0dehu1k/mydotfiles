@@ -553,7 +553,7 @@ injection-regex = "php"
 file-types = ["php", "inc"]
 shebangs = ["php"]
 roots = ["composer.json", "index.php"]
-language-server = { command = "intelephense", args = ["--stdio"] }
+language-server = { command = "/usr/bin/intelephense", args = ["--stdio"] }
 indent = { tab-width = 4, unit = "    " }
 
 [[grammar]]

@@ -16,5 +16,10 @@ kitty @ launch --type=tab --tab-title "Code"
 kitty @ send-text --match "recent:0" "cd github\n"
 
 kitty @ launch --type=tab --tab-title "Youtube"
+
 kitty @ launch --type=tab --tab-title "K8s"
+
+kitty @ launch --type=tab --tab-title "mc"
+kitty @ send-text --match "recent:0" "mc\n"
+
 kitty @ launch --type=tab --tab-title "Misc"

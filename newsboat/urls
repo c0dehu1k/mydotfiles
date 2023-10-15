@@ -36,7 +36,6 @@ http://news.mit.edu/rss/topic/computers "techarticles"
 http://feeds.feedburner.com/noobslab "techarticles"
 https://www.howtogeek.com/feed/ "techarticles"
 http://feeds.feedburner.com/venturebeat/SZYF "techarticles"
-https://hackernewsrss.com/feed.xml "techarticles"
 # http://www.techradar.com/rss "techarticles" - not working
 
 # Linux
@@ -61,3 +60,4 @@ https://www.reddit.com/r/HelixEditor/new.rss reddit content
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZgt6AzoyjslHTC9dz0UoTw "Linux" "YouTube" #ByteByteGo
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA "Linux" "YouTube" #chrisatmachine
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6VkhPuCCwR_kG0GExjoozg "Linux" "YouTube" #justmeandpensource
+http://www.goinggo.net/feeds/posts/default?alt=rss
