@@ -1,0 +1,254 @@
+Feed: Better Programming - Medium
+Title: System Design Series: ElasticSearch, Architecting for search
+Author: Sanil Khurana
+Date: Wed, 25 Oct 2023 19:11:36 +0530
+Link: https://betterprogramming.pub/system-design-series-elasticsearch-architecting-for-search-5d5e61360463?source=rss----d0b105d10f0a---4
+ 
+[image 1 (link #1)]Credit: Elastic Blog[2]
+ 
+Before you begin…
+ 
+I wanted to write about ElasticSearch for a long time. While reading, experimenting, and trying to write about it, I 
+realized it would be way too long to cover everything in a blog post, so I decided to split it into multiple smaller 
+posts. This post is an introduction to how Elasticsearch works and is architected.
+ 
+Databases
+ 
+When I started software development, I used to think that the goal of databases was only to persist data. I now realize 
+how wrong I was.
+ 
+Databases persist data, but perhaps more importantly, they need to serve data, and while serving, they need to maintain 
+certain SLAs of availability, consistency, atomicity, isolation, etc. Serving or simply returning data might seem simple
+at first, but as you’ll soon realize, it has a lot more caveats than you might assume.
+ 
+ElasticSearch
+ 
+The complexity of full-text search
+ 
+To understand why full-text search is a difficult problem to solve, let’s think of an example. Let’s assume you are 
+hosting a blog posting website with hundreds of millions of blog posts, maybe even billions and each blog post contains 
+hundreds of words, similar to Medium.
+ 
+Performing a full-text search would mean that any user can search for something like “java” or “learn programming,” and 
+you need to figure out all the blog posts where these words appear within a few milliseconds. Not only that, you need to
+score these blog posts based on multiple factors, for example, how frequently these words appear in these posts, or how 
+many claps or comments each post has, or maybe you want to show posts that were written recently on the top, or maybe 
+you want to highlight certain top content creators, or maybe you want to put posts where these words appear in the title
+higher, etc.
+ 
+Also, you know users can accidentally make typos, so you’d need to handle that. You’d need to think about the ordering 
+for words as well, “Learn Java” should have a similar meaning as “Java learning,” but sometimes ordering would be more 
+important, like “Carbon Dioxide” probably is very different from “Dioxide Carbon” (It’s just an example, I don’t know if
+that’s a word, I don’t know any chemistry).
+ 
+Just matching the words would also not work. Some words provide more context to the post than others. For example, a 
+blog post titled “Learning Java” is a relevant result when a user searches for “Java” but not so relevant when the user 
+simply searches “Learning.” It’s also a relevant blog post when the user searches for “Programming,” even if the word 
+never appears in the blog post!
+ 
+There is an incredible amount of complexity in these challenges, and at first glance, they seem almost impossible to 
+search, yet you open a food ordering app and search among tens of thousands of dishes across thousands of restaurants or
+search for people performing a specific job role among hundreds of millions of users on Linkedin or search specific 
+topics among billions of blog posts every day.
+ 
+Elasticsearch is a database meant to solve this very problem. Let’s look at how it works.
+ 
+Understanding the terminology
+ 
+Before we get started with Elasticsearch, we should get a little familiar with the terminology. To understand things 
+better, let’s take an example. Let’s assume you are storing blog posts on Elasticsearch.
+ 
+Nodes
+ 
+Nodes are just individual Elasticsearch processes.
+[image 2 (link #3)]
+ 
+Usually, you’d run a single Elasticsearch process per machine, so it's easier to think of them as individual servers. 
+Each of these processes is running in isolation from others and is only connected via a common network. Elasticsearch 
+generally runs as a large-scale distributed system, which means you’d typically be running multiple machines(or nodes).
+[image 3 (link #4)]
+ 
+Once you have all of these nodes running together, they can form a “cluster.” A Cluster is more than a sum of its parts;
+it isn’t just a certain number of nodes running in isolation. Instead, the nodes are aware that they are part of a 
+cluster and talk to each other when performing different operations. In a way, an Elasticsearch cluster is a completely 
+new entity.
+ 
+An ElasticSearch cluster has a huge number of responsibilities, such as storing documents, searching for these 
+documents, performing different analytical and aggregational tasks, backing up data, etc. It also has to manage itself, 
+such as ensuring which nodes are healthy and which are not, deciding which document goes to which node, etc. So, in any 
+significant-sized cluster, it’s important to have distinct nodes for different domains of operations.
+ 
+While there can be many such distinctions, one such clear distinction is nodes that store data and perform heavy 
+data-intensive tasks, such as searching and having a dedicated node that manages the cluster, ensuring nodes are 
+healthy, making decisions regarding which document goes to which node, etc. It's important to create this distinction 
+because these nodes might even require different hardware resources. Data nodes might require bigger machines, with a 
+more performant network and disk and a lot of memory, while nodes performing more administrative tasks may have 
+completely different requirements.
+ 
+The nodes storing data and searching can be “data” nodes, and the node performing more administrative tasks can be 
+called a “master” node.
+[image 4 (link #5)]
+ 
+Indexes and Documents
+ 
+Documents are simple JSON objects that you store in ElasticSearch. They are synonymous to rows in a relational database 
+or a single document in MongoDB.
+ 
+For our example, a single document might look like the following-
+https://medium.com/media/7864492d9d94c910c576a079d0062a52/href[6]
+ 
+Indexes are collections of similar documents. They are synonymous with tables in relational databases(where every row is
+a single item), and collections in MongoDB.
+ 
+So, for our example, we would have a single index that stores blog posts. Let’s call it blog_posts. If we want to store 
+some other data, let’s say users, we can create another index, users. blog_posts index stores various blog post 
+documents, each containing fields related to the blog post and the users collection stores user documents containing 
+fields such as user_name, email, etc.
+ 
+Shards
+ 
+Documents in an index are divided into multiple shards. Each shard stores a certain subset of the documents of the 
+index. We will understand why it's important to divide documents into multiple shards later, but for now, let’s focus on
+how shards work.
+ 
+For example, let’s say we have a few blog_posts documents.
+[image 5 (link #7)]
+ 
+If we create three shards for this index(Shard A, Shard B, Shard C, for example), all of our documents would be divided 
+into these three shards.
+[image 6 (link #8)]
+ 
+These shards would then live in different data nodes across our cluster.
+[image 7 (link #9)]
+ 
+This is important because the distribution of these documents into multiple shards gives you multiple advantages,
+ 
+ 1. Searches can be parallelized. When the user wants to perform a search, all of the documents will be searched. This 
+ would be very time-intensive if all documents were searched on a single server. Sharding allows you to distribute your 
+ documents throughout multiple servers, allowing a single search to be done in parallel on different hardware.
+ 2. Other queries, such as inserting documents(called indexing in Elasticsearch) or retrieving documents by a specific 
+ ID, would be distributed among all the nodes.
+ 
+Our architecture is still not complete, however. If a node dies, the shards it was storing(and the data on those shards)
+would be lost forever.
+ 
+Let’s look at primary and replica shards to better understand this.
+ 
+Primary, Replica, and Distinct Shards
+ 
+Just a quick revision of what we have already covered so far: a single shard contains multiple documents. For example,
+[image 8 (link #8)]
+ 
+And each shard lives on a particular node,
+[image 9 (link #9)]
+ 
+One problem with our architecture so far is that if a particular node, let’s say 10.192.0.3 dies or becomes unavailable,
+the data in “Shard A” is lost forever. To solve this issue, let’s introduce the concept of “Replica Shards” and “Primary
+Shards”. Primary shards are the shards we have been discussing till now(labeled them as “Primary” now),
+[image 10 (link #10)]
+ 
+Replica shards are shards that simply store the same documents that the primary shard is associated with stores. So, a 
+replica shard is simply “replicating” or duplicating a particular primary shard.
+[image 11 (link #11)]
+ 
+In the diagram above, you can see that each primary shard has an associated replica shard, and each replica shard stores
+the same documents that the primary does. Here, we have one replica shard per primary shard, but we can modify this 
+number to be bigger as well — we can have two replicas per primary. For now, let’s continue with one replica per primary
+shard.
+ 
+These replica shards don’t need to live on the same node as the primary one(it makes sense each replica is on a 
+different node than its primary). Both primary and replica shards get distributed on all the nodes of the cluster.
+[image 12 (link #12)]
+ 
+In the diagram above, each shard’s primary and replica exist on different nodes. A single node failure would not lead to
+the unavailability of data. For example, if the node 10.192.0.3 becomes unavailable, neither Shard A nor Shard B’s data 
+is lost. Shard A’s data is still available on node 10.192.0.2 , and similarly, Shard B’s data is still available on node
+10.192.0.1.
+ 
+This means our cluster can survive the loss of a single node. However, our cluster may not survive the loss of two 
+nodes. For example, the loss of both 10.192.0.3 and 10.192.0.2 nodes would make Shard A’s documents completely 
+unavailable. We can configure higher replication, for example, using two replicas per primary shard to mitigate this. 
+But for now, let’s continue with one replica per primary shard.
+ 
+Finally, let’s take a look at “Distinct Shards”. Distinct shard is simply a term used to group the same primary and 
+replicas together. So, in our current example, we have three primary shards, three replica shards(1 replica per 
+primary), six total shards(three primaries + three replicas), and three distinct shards,
+[image 13 (link #13)]
+ 
+The reason why it's important to group primary and its corresponding replica shards into a single “Distinct shard” will 
+become clear. Just to reiterate, “Distinct shard” is simply a logical grouping of shards and does impact the 
+architecture that we have been drawing till now.
+ 
+Let’s look at a few real query examples
+ 
+To finish the architecture discussion, let’s look at how a search query and a get query will work in our example 
+cluster.
+ 
+First steps…
+ 
+Let’s look at what happens when we perform a search or a get query.
+ 
+This is what our cluster looks like right now,
+[image 14 (link #12)]
+ 
+The API sends a search or a get query to any of these nodes. The node it sends the query to becomes the “coordinator” 
+node. Larger clusters may even have dedicated coordinator nodes, but we don’t need to do that now.
+[image 15 (link #14)]
+ 
+This coordinator node has the responsibility of receiving the request, talking to other nodes(if required), combining 
+the results received from multiple nodes, and returning the result.
+ 
+Search
+ 
+When searching, the search query must hit all the distinct shards. This is because all shards individually perform the 
+search locally with the documents they hold.
+ 
+The coordinator node will then talk to multiple nodes to get data from each distinct shard. Recall that in our example, 
+we have one replica per primary shard, so the query only hits half of the shards in the cluster(either the primary or 
+the replica).
+[image 16 (link #15)]
+ 
+Query by id
+ 
+When performing a query by ID for a particular document, the coordinator node already knows which shard would hold the 
+document, so there is no need to hit all nodes. It simply forwards the request to the node that stores the data and 
+sends the response back to the client.
+[image 17 (link #16)]
+ 
+Conclusion
+ 
+This was a very simple introduction to the architecture of Elasticsearch, I want to cover a lot more topics as I go on. 
+For the next post, we will set up a small cluster, ingest some data to play with, and try to better understand how 
+Elasticsearch performs scoring.
+ 
+In short, there is a lot more that is coming up so if you liked this one, follow me to get updated on my new stories!
+[image 18 (link #17)]Source: vimeo[18][image 19 (link #19)]
+
+ ---------------------------------------------------------------------------------------------------------------------- 
+
+System Design Series: ElasticSearch, Architecting for search[20] was originally published in Better Programming[21] on 
+Medium, where people are continuing the conversation by highlighting and responding to this story.
+ 
+Links: 
+[1]: https://cdn-images-1.medium.com/max/1024/0*Z6TjVJ-Rowjdocru.png (image)
+[2]: https://www.elastic.co/blog/whats-new-elasticsearch-8-8-0 (link)
+[3]: https://cdn-images-1.medium.com/max/351/1*zT4mMy70TIpo9-finYd5NQ.png (image)
+[4]: https://cdn-images-1.medium.com/max/1024/1*r10Vxngb4GJ1JVkTLAp4Wg.png (image)
+[5]: https://cdn-images-1.medium.com/max/1024/1*StZBzH4vpfLIO1IVgBlRyA.png (image)
+[6]: https://medium.com/media/7864492d9d94c910c576a079d0062a52/href (link)
+[7]: https://cdn-images-1.medium.com/max/1024/1*4HQyuNtIEYUE8OxOPw1EWw.png (image)
+[8]: https://cdn-images-1.medium.com/max/1024/1*nPGhoohJMeCXwCoGAS0AtQ.png (image)
+[9]: https://cdn-images-1.medium.com/max/1024/1*YxYbIeV24mEg15c4Uycljw.png (image)
+[10]: https://cdn-images-1.medium.com/max/1024/1*OCUp4f1EtoY7GVL5TyogMQ.png (image)
+[11]: https://cdn-images-1.medium.com/max/1024/1*qhoonAbYxorKDAxj8omdVQ.png (image)
+[12]: https://cdn-images-1.medium.com/max/1024/1*9FJ_K29nvu3Z01YupqnlLQ.png (image)
+[13]: https://cdn-images-1.medium.com/max/1024/1*nS7iaNYADEfNgpGMpJ7FJw.png (image)
+[14]: https://cdn-images-1.medium.com/max/1024/1*X1phogDD3Nqow60ZE_JlPA.png (image)
+[15]: https://cdn-images-1.medium.com/max/1024/1*IhwpKkppse4_y92xinJBFw.png (image)
+[16]: https://cdn-images-1.medium.com/max/1024/1*7kGQ3H4Kn8UUyTxk35H1og.png (image)
+[17]: https://cdn-images-1.medium.com/max/1024/0*XNRNbQisEtD2iImS.jpg (image)
+[18]: https://vimeo.com/222447405 (link)
+[19]: https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=5d5e61360463 (image)
+[20]: https://betterprogramming.pub/system-design-series-elasticsearch-architecting-for-search-5d5e61360463 (link)
+[21]: https://betterprogramming.pub/ (link)
+
