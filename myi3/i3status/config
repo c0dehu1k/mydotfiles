@@ -23,7 +23,7 @@ load {
 }
 
 memory {
-        format = "<span background='#f59335'> %available </span>"
+        format = "<span background='#f59335'> %available Free </span>"
 }
 
 cpu_temperature 0 {
@@ -37,7 +37,7 @@ disk "/" {
 }
 
 wireless wlp9s0 {
-        format_up = "<span background='#b48ead'> %essid, %bitrate </span>"
+        format_up = "<span background='#b48ead'> %essid</span>"
         format_down = "<span background='#b48ead'> Disconnected </span>"
 }
 

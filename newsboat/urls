@@ -39,8 +39,6 @@ http://feeds.feedburner.com/venturebeat/SZYF "techarticles"
 https://techcrunch.com/feed/ "techarticles"
 # http://www.techradar.com/rss "techarticles" - not working
 
-# Networking
-https://www.networkworld.com/index.rss "Networking"
 
 # Linux
 https://www.reddit.com/r/unixporn/new.rss reddit content
@@ -54,7 +52,6 @@ http://feeds2.feedburner.com/Command-line-fu
 https://www.reddit.com/r/neovim/new.rss reddit content
 https://www.reddit.com/r/i3wm/new.rss reddit content
 https://www.reddit.com/r/weechat/new.rss reddit content
-https://www.reddit.com/r/tmux/new.rss reddit content
 https://www.reddit.com/r/neomutt/new.rss reddit content
 https://www.reddit.com/r/qutebrowser/new.rss reddit content
 https://www.reddit.com/r/KittyTerminal/new.rss reddit content

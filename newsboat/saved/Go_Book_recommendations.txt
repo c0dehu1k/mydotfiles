@@ -1,0 +1,20 @@
+Feed: The Go Programming Language
+Title: Book recommendations
+Author: /u/Spigen19
+Date: Tue, 14 Nov 2023 03:06:19 +0530
+Link: https://www.reddit.com/r/golang/comments/17ulng1/book_recommendations/
+ 
+Hello, everyone. I was wondering if you could recommend some good books to learn Golang, and backend applications. As 
+for the basics of the language, I'm studying The Go Programming Language (Donovan & Kernighan). It's an interesting 
+book, but from my point of view, there aren't many exercises, and I think that compromises the quality of the study. 
+Regarding backend applications, I started with Go Web Programming (Sau Sheong Chang), and to my surprise, it's an 
+excellent book! It gives a good overview of the main packages. Even so, I need more book recommendations. I know that 
+most developers like to study through courses, but I have this habit of taking my first steps in some new technology 
+through books. 
+submitted by /u/Spigen19 [1] 
+[link][2] [comments][2]
+ 
+Links: 
+[1]: https://www.reddit.com/user/Spigen19 (link)
+[2]: https://www.reddit.com/r/golang/comments/17ulng1/book_recommendations/ (link)
+

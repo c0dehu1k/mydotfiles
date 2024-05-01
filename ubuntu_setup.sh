@@ -92,12 +92,15 @@ sudo apt install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 # Usefull and Better command's
 sudo apt install bat -y  # replaces cat 
+sudo apt install tldr -y
 sudo apt install duf -y # Better than df 
 sudo apt install jq -y  # Display jsons better
-sudo apt install audacity # MP3 cutter app
-sudo apt install speedtest-cli # command line speed test utility
-sudo apt install gnome-disk-utility # Disk format utility
-sudo snap install notion-snap # Notes making app
+sudo apt install audacity -y # MP3 cutter app
+sudo apt install speedtest-cli -y  # command line speed test utility
+sudo apt install gnome-disk-utility -y  # Disk format utility
+sudo snap install notion-snap -y # Notes making app
+sudo apt install telegram-desktop -y # Telegram desktop app 
+sudo apt install eza -y # Replacement of ls command
 
 # Final update and clean ups
 sudo apt update

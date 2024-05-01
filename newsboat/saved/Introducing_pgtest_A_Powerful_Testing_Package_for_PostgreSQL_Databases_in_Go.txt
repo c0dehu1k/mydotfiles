@@ -1,0 +1,42 @@
+Feed: The Go Programming Language
+Title: Introducing pgtest: A Powerful Testing Package for PostgreSQL Databases in Go
+Author: /u/greyhoundk
+Date: Fri, 19 Apr 2024 20:03:31 +0530
+Link: https://www.reddit.com/r/golang/comments/1c7ydyt/introducing_pgtest_a_powerful_testing_package_for/
+ 
+Hello, Gophers!
+---------------
+ 
+I'm excited to introduce pgtest, a Go package that simplifies testing against PostgreSQL databases. pgtest provides a 
+clean and efficient testing environment by running tests in parallel, applying database schema migrations, and offering 
+options to disable referential integrity checks and specify the desired PostgreSQL version.
+ 
+Key features of pgtest:
+ 
+  * 🚀 Run tests in parallel for improved performance
+  * 🔧 Apply database schema migrations using Atlas
+  * 🔓 Disable referential integrity checks for simplified test setup
+  * 🔢 Specify desired PostgreSQL version for testing
+  * 🔌 Utilizes pgx/pool for efficient and feature-rich database connection management
+ 
+Using pgtest is straightforward:
+package pgtest import ( "context" "github.com/stretchr/testify/require" "testing" ) const ( url pgtest.DesiredStateURL = "file://schema.sql" ) func TestPGTest(t *testing.T) { ctx := context.Background() pool := pgtest.New(t, ctx, pgtest.WithDesiredState(url)) // Given _, err := pool.Exec(ctx, `INSERT INTO clinics (id, name, email) VALUES ($1, $2, $3)`, "test-clinic-uuid", "Test Clinic", "test@example.com") require.NoError(t, err) // When var name string var email string err = pool.QueryRow(ctx, `SELECT name, email FROM clinics`).Scan(&name, &email) // Then require.NoError(t, err) require.Equal(t, "Test Clinic", name) require.Equal(t, "test@example.com", email) } 
+ 
+pgtest offers a few options to customize the behavior of the test setup:
+ 
+  * WithReferentialIntegrityDisabled(): Disables referential integrity checks in the test database, allowing for 
+  simplified test setup when dealing with complex referential integrity chains.
+  * WithVersion(version string): Specifies the desired PostgreSQL version to use for testing. Defaults to "latest" if 
+  not provided.
+  * WithDesiredState(url string): Specifies the desired state URL for the database schema. The URL can be a file path or
+  a URL to a SQL file containing the desired schema.
+ 
+🌟 If you're looking for a powerful and easy-to-use testing package for PostgreSQL databases in Go, give pgtesta try! 
+It'll simplify your testing setup and help you write more efficient and maintainable tests.
+submitted by /u/greyhoundk [1] 
+[link][2] [comments][2]
+ 
+Links: 
+[1]: https://www.reddit.com/user/greyhoundk (link)
+[2]: https://www.reddit.com/r/golang/comments/1c7ydyt/introducing_pgtest_a_powerful_testing_package_for/ (link)
+
