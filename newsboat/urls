@@ -8,6 +8,17 @@ https://golangbyexample.com/feed/ "programming"
 https://forum.golangbridge.org/latest.rss "go"
 https://appliedgo.net/index.xml "go"
 https://www.reddit.com/r/golang/.rss?format=xml reddit content
+https://www.gobeyond.dev/rss/ "~Ben B Johnson"
+https://www.calhoun.io/post/rss/index.xml "~John Calhoun"
+https://gochronicles.com/rss/ "~Go Chronicles"
+https://threedots.tech/index.xml "~Three dots lab"
+https://dave.cheney.net/feed/atom "~Dave Chaney"
+https://blog.golang.org/feed.atom "~Go Blog"
+https://medium.com/feed/@matryer "~Matt Ryer"
+https://eli.thegreenplace.net/feeds/all.atom.xml "~Eli Bendersky @google"
+https://blog.questionable.services/atom.xml "~Matt Silverlock | @google"
+https://cprss.s3.amazonaws.com/golangweekly.com.xml "~Golang Weekly"
+
 
 # Docker
 https://www.docker.com/blog/feed/ "docker"
