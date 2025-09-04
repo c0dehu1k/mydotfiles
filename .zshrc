@@ -118,3 +118,8 @@ source ~/.aliases
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/Users/josunil/go/bin/:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
